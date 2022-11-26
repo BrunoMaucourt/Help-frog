@@ -18,6 +18,17 @@ Project of battleship-like game under Python (3.10.6) and Pygame (2.1.2).
 
 ![screenshot](https://raw.githubusercontent.com/BrunoMaucourt/Help-frog/main/Pictures/Screenshots/Screenshot_version2.png)
 
-## License
+## Licenses
 
-Creative Commons Attribution Share Alike 4.0
+- Code and illustrations of Help(frog) are distributed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license.
+
+- Font Magical story come from [Gilar Studio](https://www.dafont.com/magical-story.font) and is free for personal use.
+
+- Sounds come from [BBC sound effects](https://sound-effects.bbcrewind.co.uk/) and are under BBC’s Content Licence.
+
+## Contact
+
+Thanks for checking out my game. I hope you enjoy it! Feel free to contact me.
+
+- Bruno Maucourt
+- contact[at sign]brunomaucourt.com
