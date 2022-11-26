@@ -1,0 +1,10 @@
+Level_01: 25
+Level_02: 25
+Level_03: 25
+Level_04: 25
+Level_05: 25
+Level_06: 25
+Level_07: 25
+Level_08: 25
+Level_09: 25
+Level_10: 25
