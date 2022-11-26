@@ -1,7 +1,6 @@
 #	HelpFrog
 ---
-![Help(frog)])(Pictures/GitHub_card.png)
-
+![Help(frog)])(https://github.com/BrunoMaucourt/Help-frog/blob/main/Pictures/GitHub_card.png)
 Project of battleship-like game under Python (3.10.6) and Pygame (2.1.2).
 
 ## Version 0.1.0 (7th November 2022)
@@ -16,7 +15,7 @@ Project of battleship-like game under Python (3.10.6) and Pygame (2.1.2).
 - News pictures to illustrate frog states
 - Options menu with option to disable sounds
 
-![screenshot])(Pictures/Screenshots/Screenshot_version2.png)
+![screenshot])(https://github.com/BrunoMaucourt/Help-frog/blob/main/Pictures/Screenshots/Screenshot_version2.png)
 
 ## License
 
