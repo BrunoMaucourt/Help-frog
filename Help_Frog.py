@@ -1,7 +1,7 @@
 ########################
 #	HelpFrog
 #	Bruno MAUCOURT
-#	Novembre 2022
+#	December 2022
 #	Python 3.10.6
 #	Pygame 2.1.2
 ########################
@@ -179,13 +179,43 @@ RUNNING = True
 #
 ####
 
+def choose_level(levelNumber):
+    '''
+    Fonction pour le choix du niveau
+    '''
+    global level
+    initialisation_of_variables()
+    match levelNumber:
+        case "level1":
+            level = Level("level_01", 1, 1, 1, 25, 75, 700, 75, 5, 1)
+        case "level2":
+            level = Level("level_02", 1, 1, 1, 25, 75, 700, 75, 5, 2)
+        case "level3":
+            level = Level("level_03", 2, 2, 2, 25, 75, 700, 75, 5, 3)
+        case "level4":
+            level = Level("level_04", 2, 2, 2, 25, 75, 700, 75, 5, 4)
+        case "level5":
+            level = Level("level_05", 3, 3, 3, 25, 75, 700, 75, 5, 5)
+        case "level6":
+            level = Level("level_06", 5, 5, 5, 25, 75, 700, 75, 5, 5)
+        case "level7":
+            level = Level("level_07", 5, 5, 5, 25, 75, 700, 75, 5, 5)
+        case "level8":
+            level = Level("level_08", 5, 5, 5, 25, 75, 700, 75, 5, 5)
+        case "level9":
+            level = Level("level_09", 5, 5, 5, 25, 75, 700, 75, 5, 5)
+        case "level10":
+            level = Level("level_10", 5, 5, 5, 25, 75, 700, 75, 5, 5)
+    pygame.time.wait(100)
+    return "level"
+
 def initialisation_checkerboard_player():
     position = 0
     global initialisation_player
     global checkerboard_player
     if initialisation_player == False:
-        for i in range(0, NUMBER_OF_ROW,1):
-            for j in range(0, NUMBER_OF_COLUMN,1):
+        for i in range(0, level.NUMBER_OF_ROW,1):
+            for j in range(0, level.NUMBER_OF_COLUMN,1):
                 checkerboard_player.insert(position, "Empty")
             position +=1
     return True
@@ -195,8 +225,8 @@ def initialisation_checkerboard_opponent():
     global initialisation_opponent
     global checkerboard_opponent
     if initialisation_opponent == False:
-        for i in range(0, NUMBER_OF_ROW,1):
-            for j in range(0, NUMBER_OF_COLUMN,1):
+        for i in range(0, level.NUMBER_OF_ROW,1):
+            for j in range(0, level.NUMBER_OF_COLUMN,1):
                 checkerboard_opponent.insert(position, "Empty")
             position +=1
     return True
@@ -205,11 +235,11 @@ def display_checkerboard(perso, pos_x, pos_y):
     position = 0
     #global checkerboard_player
     pos_x_initial = pos_x
-    for i in range(0,NUMBER_OF_ROW,1):
-        for j in range(0,NUMBER_OF_COLUMN,1):
+    for i in range(0,level.NUMBER_OF_ROW,1):
+        for j in range(0,level.NUMBER_OF_COLUMN,1):
             if perso[position] == "Empty" or perso[position] == "Bugs_opponent":
                 pygame.draw.rect(fen, BLUE, (pos_x, pos_y, 75, 75))
-                show_bugs_to_hide(PLAYER_POS_X, PLAYER_POS_Y)
+                show_bugs_to_hide(level.PLAYER_POS_X, level.PLAYER_POS_Y)
             elif perso[position] == "Bugs":
                 pygame.draw.rect(fen, BLUE_DARK, (pos_x, pos_y, 75, 75))
                 fen.blit(PICTURE_BUG, (pos_x, pos_y))
@@ -231,28 +261,28 @@ def find_position(pos_x, pos_y):
     if event.type == pygame.MOUSEBUTTONDOWN:
         #	Récupérer la position du clic
         x,y = event.pos
-    for i in range(0, NUMBER_OF_ROW, 1):
+    for i in range(0, level.NUMBER_OF_ROW, 1):
         if pos_y+(i*100) < y < (75+pos_y)+(i*100):
-            for j in range(0, NUMBER_OF_COLUMN, 1):
+            for j in range(0, level.NUMBER_OF_COLUMN, 1):
                 if pos_x+(j*100) < x < (75+pos_x)+(j*100):
                     #	Calculer le numéro de la case
-                    case = i*NUMBER_OF_COLUMN+(j+1)
+                    case = i*level.NUMBER_OF_COLUMN+(j+1)
                     return case
 
 def hide_bugs():
     global bugs_to_hide
     global checkerboard_player
-    if event.type == pygame.MOUSEBUTTONDOWN and find_position(PLAYER_POS_X,PLAYER_POS_Y) != None:
-        if checkerboard_player[find_position(PLAYER_POS_X,PLAYER_POS_Y)-1] == "Empty" and bugs_to_hide > 0:
-            checkerboard_player[find_position(PLAYER_POS_X,PLAYER_POS_Y)-1] = "Bugs"
-            bugs_to_hide -= 1
+    if event.type == pygame.MOUSEBUTTONDOWN and find_position(level.PLAYER_POS_X,level.PLAYER_POS_Y) != None:
+        if checkerboard_player[find_position(level.PLAYER_POS_X,level.PLAYER_POS_Y)-1] == "Empty" and level.bugs_to_hide > 0:
+            checkerboard_player[find_position(level.PLAYER_POS_X,level.PLAYER_POS_Y)-1] = "Bugs"
+            level.bugs_to_hide -= 1
             PLOUF_SOUND.play()
 
 def opponent_hide_bugs(bugs_number):
     global checkerboard_opponent
     while bugs_number > 0 and opponent_bugs_hidden == False:
         #   Choisir un nombre entre 0 et le maximum
-        nb_case = (NUMBER_OF_ROW * NUMBER_OF_COLUMN)-1
+        nb_case = (level.NUMBER_OF_ROW * level.NUMBER_OF_COLUMN)-1
         nb_aleatoire = random.randrange(0,nb_case,1)
         if checkerboard_opponent[nb_aleatoire] == "Empty":
             checkerboard_opponent[nb_aleatoire] = "Bugs_opponent"
@@ -263,11 +293,11 @@ def opponent_hide_bugs(bugs_number):
 def show_bugs_number_to_hide():
         #global bugs_to_hide
         fen.blit(BUGS_NUMBER_TO_HIDE, (600, 50))
-        if bugs_to_hide ==1:
+        if level.bugs_to_hide ==1:
             fen.blit(NUMBER_1, (600, 100))
-        elif bugs_to_hide ==2:
+        elif level.bugs_to_hide ==2:
             fen.blit(NUMBER_2, (600, 100))
-        elif bugs_to_hide ==3:
+        elif level.bugs_to_hide ==3:
             fen.blit(NUMBER_3, (600, 100))
 
 def show_bugs_to_hide(pos_x, pos_y):
@@ -276,12 +306,12 @@ def show_bugs_to_hide(pos_x, pos_y):
     #	Récupérer la position du clic
     if bugs_hidden == False:
         x,y = mouse_pos
-        for i in range(0, NUMBER_OF_ROW, 1):
+        for i in range(0, level.NUMBER_OF_ROW, 1):
             if pos_y_initial+(i*100) < y < (75+pos_y_initial)+(i*100):
-                for j in range(0, NUMBER_OF_COLUMN, 1):
+                for j in range(0, level.NUMBER_OF_COLUMN, 1):
                     if pos_x_initial+(j*100) < x < (75+pos_x_initial)+(j*100):
                         #	Calculer le numéro de la case
-                        case = i*NUMBER_OF_COLUMN+(j+1)
+                        case = i*level.NUMBER_OF_COLUMN+(j+1)
                         if checkerboard_player[case-1] == "Empty":
                             #pygame.mouse.set_visible(False)
                             fen.blit(PICTURE_BUG, (pos_x, pos_y))
@@ -307,30 +337,33 @@ def player_search_action():
     global checkerboard_opponent
     global opponent_bugs
     global player_turn
-    if event.type == pygame.MOUSEBUTTONDOWN and find_position(OPPONENT_POS_X,OPPONENT_POS_Y) != None and checkerboard_opponent[find_position(OPPONENT_POS_X,OPPONENT_POS_Y)-1] != "Empty_cliked" and checkerboard_opponent[find_position(OPPONENT_POS_X,OPPONENT_POS_Y)-1] != "Bugs_opponent_cliked":
-        if checkerboard_opponent[find_position(OPPONENT_POS_X,OPPONENT_POS_Y)-1] == "Empty":
-            checkerboard_opponent[find_position(OPPONENT_POS_X,OPPONENT_POS_Y)-1] = "Empty_cliked"
+    if event.type == pygame.MOUSEBUTTONDOWN and find_position(level.OPPONENT_POS_X,level.OPPONENT_POS_Y) != None and checkerboard_opponent[find_position(level.OPPONENT_POS_X,level.OPPONENT_POS_Y)-1] != "Empty_cliked" and checkerboard_opponent[find_position(level.OPPONENT_POS_X,level.OPPONENT_POS_Y)-1] != "Bugs_opponent_cliked":
+        if checkerboard_opponent[find_position(level.OPPONENT_POS_X,level.OPPONENT_POS_Y)-1] == "Empty":
+            checkerboard_opponent[find_position(level.OPPONENT_POS_X,level.OPPONENT_POS_Y)-1] = "Empty_cliked"
             PLOUF_SOUND.play()
             replace_text(MSG_NO_BUG_FOUND, FROG_YELLOW, 1300)
-        elif checkerboard_opponent[find_position(OPPONENT_POS_X,OPPONENT_POS_Y)-1] == "Bugs_opponent":
-            checkerboard_opponent[find_position(OPPONENT_POS_X,OPPONENT_POS_Y)-1] = "Bugs_opponent_cliked"
+        elif checkerboard_opponent[find_position(level.OPPONENT_POS_X,level.OPPONENT_POS_Y)-1] == "Bugs_opponent":
+            checkerboard_opponent[find_position(level.OPPONENT_POS_X,level.OPPONENT_POS_Y)-1] = "Bugs_opponent_cliked"
             SUCCES_SOUND.play()
-            opponent_bugs -= 1
+            level.opponent_bugs -= 1
             replace_text(MSG_BUG_FOUND, FROG_EATING, 1300)
         player_turn = end_of_turn("player")
 
 def show_manifying_glass(pos_x, pos_y):
+    '''
+    Afficher une loupe lorsque l'on survole les cases de l'étang de l'adversaire
+    '''
     pos_x_initial = pos_x
     pos_y_initial = pos_y
     #	Récupérer la position du clic
     if bugs_hidden == True:
         x,y = mouse_pos
-        for i in range(0, NUMBER_OF_ROW, 1):
+        for i in range(0, level.NUMBER_OF_ROW, 1):
             if pos_y_initial+(i*100) < y < (75+pos_y_initial)+(i*100):
-                for j in range(0, NUMBER_OF_COLUMN, 1):
+                for j in range(0, level.NUMBER_OF_COLUMN, 1):
                     if pos_x_initial+(j*100) < x < (75+pos_x_initial)+(j*100):
                         #	Calculer le numéro de la case
-                        case = i*NUMBER_OF_COLUMN+(j+1)
+                        case = i*level.NUMBER_OF_COLUMN+(j+1)
                         if checkerboard_opponent[case-1] == "Empty" or checkerboard_opponent[case-1] == "Bugs_opponent":
                             #	Masquer la sourie
                             #pygame.mouse.set_visible(False)
@@ -345,8 +378,8 @@ def replace_text(msg, frog_color, duration):
     '''
     # Effacer le contenu de l'écran
     fen.fill(GREEN_LIGHT)
-    display_checkerboard(checkerboard_player, PLAYER_POS_X, PLAYER_POS_Y)
-    display_checkerboard(checkerboard_opponent, OPPONENT_POS_X, OPPONENT_POS_Y)
+    display_checkerboard(checkerboard_player, level.PLAYER_POS_X, level.PLAYER_POS_Y)
+    display_checkerboard(checkerboard_opponent, level.OPPONENT_POS_X, level.OPPONENT_POS_Y)
     pygame.draw.rect(fen, WHITE, (0, 600, 1200, 200))
     fen.blit(frog_color, (0,600))
     fen.blit(ETANG_JOUEUR, (200, 25))
@@ -414,7 +447,7 @@ def highScoreSaving():
     # Tester chaque ligne du fichier
     for line in highScoreFile:
         print(line)
-        if(line.find(levelName) != -1):
+        if(line.find(level.levelName) != -1):
             print("bon niveau")
             lineParsed = line.split(" ")
             actualScore = int(lineParsed[1])
@@ -432,15 +465,109 @@ def highScoreSaving():
     highScoreFileWriting.write(replacement)
     highScoreFileWriting.close()
 
-def choose_level(level):
+def displayCounter(number, posX, posY):
     '''
-    Fonction pour le choix du niveau
+    Fonction pour afficher un compteur
     '''
-    initialisation_of_variables(level)
-    pygame.time.wait(100)
-    return "level"
 
-def initialisation_of_variables(level):
+class Level:
+    '''
+    Définit les variables propres au niveau
+    '''
+    def __init__(self, levelName, player_bugs, opponent_bugs, bugs_to_hide, PLAYER_POS_X, PLAYER_POS_Y, OPPONENT_POS_X, OPPONENT_POS_Y, NUMBER_OF_COLUMN, NUMBER_OF_ROW):
+        self._levelName = levelName
+        self._player_bugs = player_bugs
+        self._opponent_bugs = opponent_bugs
+        self._bugs_to_hide = bugs_to_hide
+        self._PLAYER_POS_X = PLAYER_POS_X
+        self._PLAYER_POS_Y = PLAYER_POS_Y
+        self._OPPONENT_POS_X = OPPONENT_POS_X
+        self._OPPONENT_POS_Y = OPPONENT_POS_Y
+        self._NUMBER_OF_COLUMN = NUMBER_OF_COLUMN
+        self._NUMBER_OF_ROW = NUMBER_OF_ROW
+
+    @property
+    def levelName(self):
+        return self._levelName
+    
+    @levelName.setter
+    def levelName(self, value):
+        self._levelName = value
+
+    @property
+    def player_bugs(self):
+        return self._player_bugs
+
+    @player_bugs.setter
+    def player_bugs(self, value):
+        self._player_bugs = value
+
+    @property
+    def opponent_bugs(self):
+        return self._opponent_bugs
+
+    @opponent_bugs.setter
+    def opponent_bugs(self, value):
+        self._opponent_bugs = value
+
+    @property
+    def bugs_to_hide(self):
+        return self._bugs_to_hide
+
+    @bugs_to_hide.setter
+    def bugs_to_hide(self, value):
+        self._bugs_to_hide = value
+
+    @property
+    def PLAYER_POS_X(self):
+        return self._PLAYER_POS_X
+
+    @PLAYER_POS_X.setter
+    def PLAYER_POS_X(self, value):
+        self._PLAYER_POS_X = value
+
+    @property
+    def PLAYER_POS_Y(self):
+        return self._PLAYER_POS_Y
+
+    @PLAYER_POS_Y.setter
+    def PLAYER_POS_Y(self, value):
+        self._PLAYER_POS_Y = value
+
+    @property
+    def OPPONENT_POS_X(self):
+        return self._OPPONENT_POS_X
+
+    @OPPONENT_POS_X.setter
+    def OPPONENT_POS_X(self, value):
+        self._OPPONENT_POS_X = value
+
+    @property
+    def OPPONENT_POS_Y(self):
+        return self._OPPONENT_POS_Y
+
+    @OPPONENT_POS_Y.setter
+    def OPPONENT_POS_Y(self, value):
+        self._OPPONENT_POS_Y = value
+
+    @property
+    def NUMBER_OF_COLUMN(self):
+        return self._NUMBER_OF_COLUMN
+
+    @NUMBER_OF_COLUMN.setter
+    def NUMBER_OF_COLUMN(self, value):
+        self._NUMBER_OF_COLUMN = value
+
+    @property
+    def NUMBER_OF_ROW(self):
+        return self._NUMBER_OF_ROW
+
+    @NUMBER_OF_ROW.setter
+    def NUMBER_OF_ROW(self, value):
+        self._NUMBER_OF_ROW = value
+
+
+def initialisation_of_variables():
     '''
     Réinitialiser les variables pour chaque niveau
     '''
@@ -452,17 +579,7 @@ def initialisation_of_variables(level):
     global player_turn
     global bugs_hidden
     global opponent_bugs_hidden
-    global levelName
-    global player_bugs
-    global opponent_bugs
     global scoreSaving
-    global bugs_to_hide
-    global PLAYER_POS_X
-    global PLAYER_POS_Y
-    global OPPONENT_POS_X
-    global OPPONENT_POS_Y
-    global NUMBER_OF_COLUMN
-    global NUMBER_OF_ROW
 
     turn_counter = 0
     checkerboard_player = []
@@ -473,117 +590,6 @@ def initialisation_of_variables(level):
     bugs_hidden = False
     opponent_bugs_hidden = False
     scoreSaving = True
-    #	Niveau 1
-    if level == "level1":
-        levelName = "Level_01"
-        player_bugs = 1
-        opponent_bugs = 1
-        bugs_to_hide = 1
-        PLAYER_POS_X = 25
-        PLAYER_POS_Y = 75
-        OPPONENT_POS_X = 700
-        OPPONENT_POS_Y = 75
-        NUMBER_OF_COLUMN = 5
-        NUMBER_OF_ROW = 1
-    elif level == "level2":
-        levelName = "Level_02"
-        player_bugs = 1
-        opponent_bugs = 1
-        bugs_to_hide = 1
-        PLAYER_POS_X = 25
-        PLAYER_POS_Y = 75
-        OPPONENT_POS_X = 700
-        OPPONENT_POS_Y = 75
-        NUMBER_OF_COLUMN = 5
-        NUMBER_OF_ROW = 2
-    elif level == "level3":
-        levelName = "Level_03"
-        player_bugs = 2
-        opponent_bugs = 2
-        bugs_to_hide = 2
-        PLAYER_POS_X = 25
-        PLAYER_POS_Y = 75
-        OPPONENT_POS_X = 700
-        OPPONENT_POS_Y = 75
-        NUMBER_OF_COLUMN = 5
-        NUMBER_OF_ROW = 3
-    if level == "level4":
-        levelName = "Level_04"
-        player_bugs = 2
-        opponent_bugs = 2
-        bugs_to_hide = 2
-        PLAYER_POS_X = 25
-        PLAYER_POS_Y = 75
-        OPPONENT_POS_X = 700
-        OPPONENT_POS_Y = 75
-        NUMBER_OF_COLUMN = 5
-        NUMBER_OF_ROW = 4
-    elif level == "level5":
-        levelName = "Level_05"
-        player_bugs = 1
-        opponent_bugs = 1
-        bugs_to_hide = 1
-        PLAYER_POS_X = 25
-        PLAYER_POS_Y = 75
-        OPPONENT_POS_X = 700
-        OPPONENT_POS_Y = 75
-        NUMBER_OF_COLUMN = 5
-        NUMBER_OF_ROW = 5
-    elif level == "level6":
-        levelName = "Level_06"
-        player_bugs = 3
-        opponent_bugs = 3
-        bugs_to_hide = 3
-        PLAYER_POS_X = 25
-        PLAYER_POS_Y = 75
-        OPPONENT_POS_X = 700
-        OPPONENT_POS_Y = 75
-        NUMBER_OF_COLUMN = 5
-        NUMBER_OF_ROW = 5
-    if level == "level7":
-        levelName = "Level_07"
-        player_bugs = 3
-        opponent_bugs = 3
-        bugs_to_hide = 3
-        PLAYER_POS_X = 25
-        PLAYER_POS_Y = 75
-        OPPONENT_POS_X = 700
-        OPPONENT_POS_Y = 75
-        NUMBER_OF_COLUMN = 5
-        NUMBER_OF_ROW = 5
-    elif level == "level8":
-        levelName = "Level_08"
-        player_bugs = 3
-        opponent_bugs = 3
-        bugs_to_hide = 3
-        PLAYER_POS_X = 25
-        PLAYER_POS_Y = 75
-        OPPONENT_POS_X = 700
-        OPPONENT_POS_Y = 75
-        NUMBER_OF_COLUMN = 5
-        NUMBER_OF_ROW = 5
-    elif level == "level9":
-        levelName = "Level_09"
-        player_bugs = 3
-        opponent_bugs = 3
-        bugs_to_hide = 3
-        PLAYER_POS_X = 25
-        PLAYER_POS_Y = 75
-        OPPONENT_POS_X = 700
-        OPPONENT_POS_Y = 75
-        NUMBER_OF_COLUMN = 5
-        NUMBER_OF_ROW = 5
-    elif level == "level10":
-        levelName = "Level_10"
-        player_bugs = 3
-        opponent_bugs = 3
-        bugs_to_hide = 3
-        PLAYER_POS_X = 25
-        PLAYER_POS_Y = 75
-        OPPONENT_POS_X = 700
-        OPPONENT_POS_Y = 75
-        NUMBER_OF_COLUMN = 5
-        NUMBER_OF_ROW = 5
 
 ####
 #
@@ -679,6 +685,9 @@ while RUNNING:
             pygame.time.wait(250)
         if RECT_RETURN_MENU.collidepoint(mouse_pos) and event.type == pygame.MOUSEBUTTONDOWN:
             page = "menu"
+        '''
+        Rajouter dans menu option pour effacer les sauvegardes
+        '''
 
     elif page == "level":
         #	Création des listes correspondantes aux damiers
@@ -686,25 +695,32 @@ while RUNNING:
         initialisation_opponent = initialisation_checkerboard_opponent()
         #   Affichage de l'arrière plan
         fen.fill(GREEN_LIGHT)
-        display_checkerboard(checkerboard_player, PLAYER_POS_X, PLAYER_POS_Y)
+        display_checkerboard(checkerboard_player, level.PLAYER_POS_X, level.PLAYER_POS_Y)
         pygame.draw.rect(fen, WHITE, (0, 600, 1200, 200))
         fen.blit(ETANG_JOUEUR, (200, 25))
+        '''
+        // Menu MSG_PLAYER_TURN_RULES
+        // Options musique
+        // quitter to menu
+        '''
+
+
         if bugs_hidden == False:
             fen.blit(FROG_GREEN, (0,600))
             fen.blit(MSG_GAME_START, (225, 650))
             fen.blit(MSG_GAME_START_RULES, (225, 700))
             show_bugs_number_to_hide()
             hide_bugs()
-            if bugs_to_hide == 0:
+            if level.bugs_to_hide == 0:
                 bugs_hidden = True
         elif bugs_hidden == True:
             fen.blit(ETANG_ADVERSAIRE, (850, 25))
-            display_checkerboard(checkerboard_opponent, OPPONENT_POS_X, OPPONENT_POS_Y)
+            display_checkerboard(checkerboard_opponent, level.OPPONENT_POS_X, level.OPPONENT_POS_Y)
             #	Hidde bugs in opponent pond
-            opponent_bugs_hidden = opponent_hide_bugs(opponent_bugs)
+            opponent_bugs_hidden = opponent_hide_bugs(level.opponent_bugs)
             #	Hidde bugs in opponent pond
-            show_manifying_glass(OPPONENT_POS_X, OPPONENT_POS_Y)
-            if player_bugs > 0 and opponent_bugs > 0:
+            show_manifying_glass(level.OPPONENT_POS_X, level.OPPONENT_POS_Y)
+            if level.player_bugs > 0 and level.opponent_bugs > 0:
                 if player_turn == True:
                     fen.blit(FROG_GREEN, (0,600))
                     fen.blit(MSG_PLAYER_TURN, (225, 650))
@@ -721,21 +737,21 @@ while RUNNING:
                         pygame.time.wait(1300)
                         opponent_turn_start = False
                     # Action of opponent
-                    random_number = random.randrange(0,((NUMBER_OF_ROW * NUMBER_OF_COLUMN)-1),1)
+                    random_number = random.randrange(0,((level.NUMBER_OF_ROW * level.NUMBER_OF_COLUMN)-1),1)
                     while checkerboard_player[random_number] == "Empty_cliked" or checkerboard_player[random_number] == "Bugs_cliked" or random_number == -1:
-                        random_number = random.randrange(0,((NUMBER_OF_ROW * NUMBER_OF_COLUMN)-1),1)
+                        random_number = random.randrange(0,((level.NUMBER_OF_ROW * level.NUMBER_OF_COLUMN)-1),1)
                     if checkerboard_player[random_number] == "Empty":
                         checkerboard_player[random_number] = "Empty_cliked"
                         PLOUF_SOUND.play()
                         replace_text(MSG_OUF_NO_BUG_FOUND, FROG_GREEN, 1300)
                     elif checkerboard_player[random_number] == "Bugs":
                         checkerboard_player[random_number] = "Bugs_player_cliked"
-                        player_bugs -= 1
+                        level.player_bugs -= 1
                         ERROR_SOUND.play()
                         replace_text(MSG_BUG_PLAYER_FOUND, FROG_RED, 1300)
                     player_turn = end_of_turn("opponent")
-            elif player_bugs == 0 or opponent_bugs == 0:
-                if player_bugs == 0:
+            elif level.player_bugs == 0 or level.opponent_bugs == 0:
+                if level.player_bugs == 0:
                     fen.blit(FROG_RED, (0,600))
                     fen.blit(MSG_END_LOSE, (225, 650))
                 else:
