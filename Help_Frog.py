@@ -38,11 +38,12 @@ pygame.display.set_caption("help(frog)")
 
 WHITE = (255, 255, 255)
 GREY = (128, 128, 128)
+GOLD = (233, 128, 14)
 BLACK = (0,0,0)
 BLUE = (30, 209, 215)
 RED = (255, 0, 0)
 BLUE_DARK = (16, 107, 117)
-GREEN_LIGHT = (154, 239, 80)
+GREEN_LIGHT = (89, 166, 89)
 GREEN_DARK = (52,131,6)
 
 ####
@@ -78,20 +79,30 @@ TITLE = FONT_TITLE.render("help(frog)", True, WHITE)
 MENU_PLAY = FONT_MENU.render("Jouer", True, BLACK)
 MENU_OPTION = FONT_MENU.render("Options", True, BLACK)
 MENU_CREDIT = FONT_MENU.render("Crédits", True, BLACK)
+MENU_QUIT = FONT_MENU.render("Quitter", True, BLACK)
+MENU_PLAY_GREY = FONT_MENU.render("Jouer", True, GREY)
+MENU_OPTION_GREY = FONT_MENU.render("Options", True, GREY)
+MENU_CREDIT_GREY = FONT_MENU.render("Crédits", True, GREY)
+MENU_QUIT_GREY = FONT_MENU.render("Quitter", True, GREY)
+MENU_PAUSE = FONT_MENU.render("Menu pause", True, BLACK)
 MENU_CREDIT_BRUNO = FONT_CLASSIC.render("Le jeu a été créé par Bruno MAUCOURT en Python.", True, BLACK)
 MENU_CREDIT_GRAPHISME = FONT_CLASSIC.render("Le graphisme a aussi été réalisé par Bruno MAUCOURT.", True, BLACK)
 MENU_CREDIT_FONT = FONT_CLASSIC.render("La police utilisée est Magical Story (créée par Gilar Studio).", True, BLACK)
 MENU_CREDIT_SOUND = FONT_CLASSIC.render("Les bruitages proviennent du site internet BBC Sound Effects.", True, BLACK)
-MENU_QUIT = FONT_MENU.render("Quitter", True, BLACK)
+MENU_TURN_NUMBER = FONT_MENU.render("Tour numéro", True, BLACK)
+MENU_PAUSE_HIGH_SCORE = FONT_MENU.render("Meilleur score", True, BLACK)
 RETURN_MENU = FONT_CLASSIC.render("Retourner au menu", True, BLACK)
-MSG_GAME_START = FONT_CLASSIC.render("La méchante grenouille veut voler les insectes que j'ai chasé. Aide moi à les cacher dans mon étang.", True, BLACK)
+RETURN_GAME = FONT_MENU.render("Reprendre la partie", True, BLACK)
+RETURN_MENU_FROM_PAUSE = FONT_MENU.render("Retourner au menu", True, BLACK)
+MSG_GAME_START = FONT_CLASSIC.render("La méchante grenouille veut voler les insectes que j'ai chassés Aide-moi à les cacher dans mon étang.", True, BLACK)
 MSG_GAME_START_RULES = FONT_CLASSIC.render("Clique sur les cases pour cacher mes insectes.", True, BLACK)
-MSG_PLAYER_TURN = FONT_CLASSIC.render("C'est à mon tour de jouer. Aide moi à trouver les insectes que l'on m'a volé.", True, BLACK)
+MSG_PLAYER_TURN = FONT_CLASSIC.render("C'est à mon tour de jouer. Aide-moi à trouver les insectes que l'on m'a volés.", True, BLACK)
 MSG_PLAYER_TURN_RULES = FONT_CLASSIC.render("Clique sur les cases de l'étang de l'adversaire pour chercher mes insectes.", True, BLACK)
 MSG_OPPONNENT_TURN = FONT_CLASSIC.render("C'est au tour de mon adversaire de jouer. J'espère qu'il ne trouvera pas mes insectes.", True, BLACK)
-MSG_SOUND_OPTION = FONT_MENU.render("Son :", True, BLACK)
-MSG_SOUND_OFF = FONT_MENU.render("Désactivé", True, BLACK)
-MSG_SOUND_ON = FONT_MENU.render("Activé", True, BLACK)
+OPTION_SOUND_OPTION = FONT_MENU.render("Son :", True, BLACK)
+OPTION_SOUND_OFF = FONT_MENU.render("Désactivé", True, BLACK)
+OPTION_SOUND_ON = FONT_MENU.render("Activé", True, BLACK)
+OPTION_ERASE = FONT_MENU.render("Effacer les scores sauvegardés", True, BLACK)
 NUMBER_0 = FONT_CLASSIC.render("0", True, BLACK)
 NUMBER_1 = FONT_CLASSIC.render("1", True, BLACK)
 NUMBER_2 = FONT_CLASSIC.render("2", True, BLACK)
@@ -102,6 +113,26 @@ NUMBER_6 = FONT_CLASSIC.render("6", True, BLACK)
 NUMBER_7 = FONT_CLASSIC.render("7", True, BLACK)
 NUMBER_8 = FONT_CLASSIC.render("8", True, BLACK)
 NUMBER_9 = FONT_CLASSIC.render("9", True, BLACK)
+NUMBER_0_XL = FONT_MENU.render("0", True, BLACK)
+NUMBER_1_XL = FONT_MENU.render("1", True, BLACK)
+NUMBER_2_XL = FONT_MENU.render("2", True, BLACK)
+NUMBER_3_XL = FONT_MENU.render("3", True, BLACK)
+NUMBER_4_XL = FONT_MENU.render("4", True, BLACK)
+NUMBER_5_XL = FONT_MENU.render("5", True, BLACK)
+NUMBER_6_XL = FONT_MENU.render("6", True, BLACK)
+NUMBER_7_XL = FONT_MENU.render("7", True, BLACK)
+NUMBER_8_XL = FONT_MENU.render("8", True, BLACK)
+NUMBER_9_XL = FONT_MENU.render("9", True, BLACK)
+NUMBER_0_XL_GOLD = FONT_MENU.render("0", True, GOLD)
+NUMBER_1_XL_GOLD = FONT_MENU.render("1", True, GOLD)
+NUMBER_2_XL_GOLD = FONT_MENU.render("2", True, GOLD)
+NUMBER_3_XL_GOLD = FONT_MENU.render("3", True, GOLD)
+NUMBER_4_XL_GOLD = FONT_MENU.render("4", True, GOLD)
+NUMBER_5_XL_GOLD = FONT_MENU.render("5", True, GOLD)
+NUMBER_6_XL_GOLD = FONT_MENU.render("6", True, GOLD)
+NUMBER_7_XL_GOLD = FONT_MENU.render("7", True, GOLD)
+NUMBER_8_XL_GOLD = FONT_MENU.render("8", True, GOLD)
+NUMBER_9_XL_GOLD = FONT_MENU.render("9", True, GOLD)
 LEVEL_1 = FONT_MENU.render("Niveau 1", True, BLACK)
 LEVEL_2 = FONT_MENU.render("Niveau 2", True, BLACK)
 LEVEL_3 = FONT_MENU.render("Niveau 3", True, BLACK)
@@ -113,8 +144,8 @@ LEVEL_8 = FONT_MENU.render("Niveau 8", True, BLACK)
 LEVEL_9 = FONT_MENU.render("Niveau 9", True, BLACK)
 LEVEL_10 = FONT_MENU.render("Niveau 10", True, BLACK)
 BUGS_NUMBER_TO_HIDE = FONT_CLASSIC.render("Insectes à cacher", True, BLACK)
-ETANG_JOUEUR = FONT_CLASSIC.render("Etang du joueur", True, WHITE)
-ETANG_ADVERSAIRE = FONT_CLASSIC.render("Etang de l'adversaire", True, WHITE)
+ETANG_JOUEUR = FONT_CLASSIC.render("Etang du joueur", True, BLACK)
+ETANG_ADVERSAIRE = FONT_CLASSIC.render("Etang de l'adversaire", True, BLACK)
 MSG_SUPER = FONT_CLASSIC.render("Super", True, BLACK)
 MSG_BUG_FOUND = FONT_CLASSIC.render("Super, j'ai retrouvé l'un de les insectes.", True, BLACK)
 MSG_NO_BUG_FOUND = FONT_CLASSIC.render("Mince, je n'ai pas retrouvé mes insectes.", True, BLACK)
@@ -122,11 +153,27 @@ MSG_OUF_NO_BUG_FOUND = FONT_CLASSIC.render("Ouf, il n'a pas trouvé mes insectes
 MSG_BUG_PLAYER_FOUND = FONT_CLASSIC.render("Mince, il a encore volé un de mes insectes.", True, BLACK)
 MSG_BUG_OPPONENT_FOUND = FONT_CLASSIC.render("Super, j'ai retrouvé l'un de mes insectes.", True, BLACK)
 MSG_END_GAME = FONT_CLASSIC.render("La partie est finie !", True, BLACK)
-MSG_END_LOSE = FONT_CLASSIC.render("Saperlipopette, la méchante grenouille a volé tous mes insectes. Je ne te remercie pas pour ton aide", True, BLACK)
+MSG_END_LOSE = FONT_CLASSIC.render("Saperlipopette, la méchante grenouille a volé tous mes insectes. Je ne te remercie pas pour ton aide.", True, BLACK)
 MSG_END_WIN = FONT_CLASSIC.render("Hourra, j'ai bien mangé. Merci pour ton aide.", True, BLACK)
 
 # Pour calculer la taille que prend le texte et le centrer
-TITLE_RECT = TITLE.get_rect(center=(600, 200))
+TITLE_CENTER = TITLE.get_rect(center=(WINDOW_WIDTH/2, 150))
+MENU_PLAY_CENTER = MENU_PLAY.get_rect(center=(WINDOW_WIDTH/2, 400))
+MENU_OPTION_CENTER = MENU_OPTION.get_rect(center=(WINDOW_WIDTH/2, 500))
+MENU_CREDIT_CENTER = MENU_CREDIT.get_rect(center=(WINDOW_WIDTH/2, 600))
+MENU_QUIT_CENTER = MENU_QUIT.get_rect(center=(WINDOW_WIDTH/2, 700))
+MENU_PLAY_GREY_CENTER = MENU_PLAY_GREY.get_rect(center=(WINDOW_WIDTH/2, 400))
+MENU_OPTION_GREY_CENTER = MENU_OPTION_GREY.get_rect(center=(WINDOW_WIDTH/2, 500))
+MENU_CREDIT_GREY_CENTER = MENU_CREDIT_GREY.get_rect(center=(WINDOW_WIDTH/2, 600))
+MENU_QUIT_GREY_CENTER = MENU_QUIT_GREY.get_rect(center=(WINDOW_WIDTH/2, 700))
+RETURN_GAME_CENTER = RETURN_GAME.get_rect(center=(WINDOW_WIDTH/2, 650))
+MENU_PAUSE_CENTER = MENU_PAUSE.get_rect(center=(WINDOW_WIDTH/2, 175))
+RETURN_MENU_FROM_MENU_CENTER = RETURN_MENU.get_rect(center=(WINDOW_WIDTH/2, 750))
+RETURN_MENU_FROM_PAUSE_CENTER = RETURN_MENU_FROM_PAUSE.get_rect(center=(WINDOW_WIDTH/2, 560))
+MENU_CREDIT_BRUNO_CENTER = MENU_CREDIT_BRUNO.get_rect(center=(WINDOW_WIDTH/2, 200))
+MENU_CREDIT_GRAPHISME_CENTER = MENU_CREDIT_GRAPHISME.get_rect(center=(WINDOW_WIDTH/2, 300))
+MENU_CREDIT_FONT_CENTER = MENU_CREDIT_FONT.get_rect(center=(WINDOW_WIDTH/2, 400))
+MENU_CREDIT_SOUND_CENTER = MENU_CREDIT_SOUND.get_rect(center=(WINDOW_WIDTH/2, 500))
 
 ####
 #
@@ -140,14 +187,41 @@ FROG_GREEN = pygame.image.load("Pictures/Frog_green.png").convert_alpha()
 FROG_HAPPY = pygame.image.load("Pictures/Frog_happy.png").convert_alpha()
 FROG_RED = pygame.image.load("Pictures/Frog_red.png").convert_alpha()
 FROG_YELLOW = pygame.image.load("Pictures/Frog_yellow.png").convert_alpha()
-PICTURE_BUG = pygame.image.load("Pictures/Bug.png").convert_alpha()
+PICTURE_BUG_BLACK = pygame.image.load("Pictures/bug_black.png").convert_alpha()
+PICTURE_BUG_RED = pygame.image.load("Pictures/bug_red.png").convert_alpha()
+PICTURE_BUG_GREEN = pygame.image.load("Pictures/bug_green.png").convert_alpha()
+CASE_EMPTY = pygame.image.load("Pictures/case_empty.png").convert_alpha()
+CASE_BLUE = pygame.image.load("Pictures/case_blue.png").convert_alpha()
+CASE_GREEN = pygame.image.load("Pictures/case_green.png").convert_alpha()
+CASE_GREY = pygame.image.load("Pictures/case_grey.png").convert_alpha()
+CASE_RED = pygame.image.load("Pictures/case_red.png").convert_alpha()
+PAUSE_MENU = pygame.image.load("Pictures/pause_menu.png")
 MAGNIFYING_GLASS = pygame.image.load("Pictures/Magnifying_glass.png").convert_alpha()
+LAUREL_WREATH = pygame.image.load("Pictures/laurel_wreath.png").convert_alpha()
+RED_CROSS = pygame.image.load("Pictures/cross_red.png").convert_alpha()
 LOGO_FROG = pygame.image.load("Pictures/Frog_green.png").convert_alpha()
-BACKGROUND_MENU = pygame.image.load("Pictures/Background_menu.png")
+BACKGROUND_MENU = pygame.image.load("Pictures/background_menu.png")
+BACKGROUND_GAME = pygame.image.load("Pictures/background_game.png")
+BACKGROUND_GAME6 = pygame.image.load("Pictures/background_game06.png")
+BACKGROUND_GAME7 = pygame.image.load("Pictures/background_game07.png")
+BACKGROUND_GAME8 = pygame.image.load("Pictures/background_game08.png")
+BACKGROUND_GAME9 = pygame.image.load("Pictures/background_game09.png")
+BACKGROUND_GAME10 = pygame.image.load("Pictures/background_game10.png")
+BACKGROUND_PAUSE = pygame.image.load("Pictures/background_pause.png").convert_alpha()
 
 #	Modifier la taille d'images
-PICTURE_BUG = pygame.transform.scale(PICTURE_BUG, (75, 75))
+PICTURE_BUG_BLACK = pygame.transform.scale(PICTURE_BUG_BLACK, (75, 75))
+PICTURE_BUG_GREEN = pygame.transform.scale(PICTURE_BUG_GREEN, (75, 75))
+PICTURE_BUG_RED = pygame.transform.scale(PICTURE_BUG_RED, (75, 75))
+CASE_EMPTY = pygame.transform.scale(CASE_EMPTY, (75, 75))
+CASE_BLUE = pygame.transform.scale(CASE_BLUE, (75, 75))
+CASE_GREEN = pygame.transform.scale(CASE_GREEN, (75, 75))
+CASE_GREY = pygame.transform.scale(CASE_GREY, (75, 75))
+CASE_RED = pygame.transform.scale(CASE_RED, (75, 75))
+PAUSE_MENU = pygame.transform.scale(PAUSE_MENU, (25, 25))
 MAGNIFYING_GLASS = pygame.transform.scale(MAGNIFYING_GLASS, (75, 75))
+LAUREL_WREATH = pygame.transform.scale(LAUREL_WREATH, (45, 45))
+RED_CROSS = pygame.transform.scale(RED_CROSS, (75, 75))
 BACKGROUND_MENU = pygame.transform.scale(BACKGROUND_MENU, (1200, 800))
 
 #	Utiliser un logo pour la fenêtre
@@ -187,25 +261,25 @@ def choose_level(levelNumber):
     initialisation_of_variables()
     match levelNumber:
         case "level1":
-            level = Level("level_01", 1, 1, 1, 25, 75, 700, 75, 5, 1)
+            level = Level("level_01", 1, 1, 1, 25, 100, 700, 100, 5, 1, BACKGROUND_GAME)
         case "level2":
-            level = Level("level_02", 1, 1, 1, 25, 75, 700, 75, 5, 2)
+            level = Level("level_02", 1, 1, 1, 25, 100, 700, 100, 5, 2, BACKGROUND_GAME)
         case "level3":
-            level = Level("level_03", 2, 2, 2, 25, 75, 700, 75, 5, 3)
+            level = Level("level_03", 2, 2, 2, 25, 100, 700, 100, 5, 3, BACKGROUND_GAME)
         case "level4":
-            level = Level("level_04", 2, 2, 2, 25, 75, 700, 75, 5, 4)
+            level = Level("level_04", 2, 2, 2, 25, 100, 700, 100, 5, 4, BACKGROUND_GAME)
         case "level5":
-            level = Level("level_05", 3, 3, 3, 25, 75, 700, 75, 5, 5)
+            level = Level("level_05", 3, 3, 3, 25, 100, 700, 100, 5, 5, BACKGROUND_GAME)
         case "level6":
-            level = Level("level_06", 5, 5, 5, 25, 75, 700, 75, 5, 5)
+            level = Level("level_06", 5, 5, 5, 25, 100, 700, 100, 5, 5, BACKGROUND_GAME6)
         case "level7":
-            level = Level("level_07", 5, 5, 5, 25, 75, 700, 75, 5, 5)
+            level = Level("level_07", 5, 5, 5, 25, 100, 700, 100, 5, 5, BACKGROUND_GAME7)
         case "level8":
-            level = Level("level_08", 5, 5, 5, 25, 75, 700, 75, 5, 5)
+            level = Level("level_08", 5, 5, 5, 25, 100, 700, 100, 5, 5, BACKGROUND_GAME8)
         case "level9":
-            level = Level("level_09", 5, 5, 5, 25, 75, 700, 75, 5, 5)
+            level = Level("level_09", 5, 5, 5, 25, 100, 700, 100, 5, 5, BACKGROUND_GAME9)
         case "level10":
-            level = Level("level_10", 5, 5, 5, 25, 75, 700, 75, 5, 5)
+            level = Level("level_10", 5, 5, 5, 25, 100, 700, 100, 5, 5, BACKGROUND_GAME10)
     pygame.time.wait(100)
     return "level"
 
@@ -238,19 +312,19 @@ def display_checkerboard(perso, pos_x, pos_y):
     for i in range(0,level.NUMBER_OF_ROW,1):
         for j in range(0,level.NUMBER_OF_COLUMN,1):
             if perso[position] == "Empty" or perso[position] == "Bugs_opponent":
-                pygame.draw.rect(fen, BLUE, (pos_x, pos_y, 75, 75))
+                fen.blit(CASE_EMPTY, (pos_x, pos_y))
                 show_bugs_to_hide(level.PLAYER_POS_X, level.PLAYER_POS_Y)
             elif perso[position] == "Bugs":
-                pygame.draw.rect(fen, BLUE_DARK, (pos_x, pos_y, 75, 75))
-                fen.blit(PICTURE_BUG, (pos_x, pos_y))
+                fen.blit(CASE_BLUE, (pos_x, pos_y))
+                fen.blit(PICTURE_BUG_BLACK, (pos_x, pos_y))
             elif perso[position] == "Empty_cliked":
-                pygame.draw.rect(fen, GREY, (pos_x, pos_y, 75, 75))
+                fen.blit(CASE_GREY, (pos_x, pos_y))
             elif perso[position] == "Bugs_player_cliked":
-                pygame.draw.rect(fen, RED, (pos_x, pos_y, 75, 75))
-                fen.blit(PICTURE_BUG, (pos_x, pos_y))
+                fen.blit(CASE_RED, (pos_x, pos_y))
+                fen.blit(PICTURE_BUG_RED, (pos_x, pos_y))
             elif perso[position] == "Bugs_opponent_cliked":
-                pygame.draw.rect(fen, GREEN_DARK, (pos_x, pos_y, 75, 75))
-                fen.blit(PICTURE_BUG, (pos_x, pos_y))
+                fen.blit(CASE_GREEN, (pos_x, pos_y))
+                fen.blit(PICTURE_BUG_GREEN, (pos_x, pos_y))
             position +=1
             pos_x += 100
         pos_x = pos_x_initial
@@ -292,13 +366,17 @@ def opponent_hide_bugs(bugs_number):
 
 def show_bugs_number_to_hide():
         #global bugs_to_hide
-        fen.blit(BUGS_NUMBER_TO_HIDE, (600, 50))
+        fen.blit(BUGS_NUMBER_TO_HIDE, (600, 25))
         if level.bugs_to_hide ==1:
-            fen.blit(NUMBER_1, (600, 100))
+            fen.blit(NUMBER_1, (800, 25))
         elif level.bugs_to_hide ==2:
-            fen.blit(NUMBER_2, (600, 100))
+            fen.blit(NUMBER_2, (800, 25))
         elif level.bugs_to_hide ==3:
-            fen.blit(NUMBER_3, (600, 100))
+            fen.blit(NUMBER_3, (800, 25))
+        elif level.bugs_to_hide ==4:
+            fen.blit(NUMBER_4, (800, 25))
+        elif level.bugs_to_hide ==5:
+            fen.blit(NUMBER_5, (800, 25))
 
 def show_bugs_to_hide(pos_x, pos_y):
     pos_x_initial = pos_x
@@ -314,7 +392,7 @@ def show_bugs_to_hide(pos_x, pos_y):
                         case = i*level.NUMBER_OF_COLUMN+(j+1)
                         if checkerboard_player[case-1] == "Empty":
                             #pygame.mouse.set_visible(False)
-                            fen.blit(PICTURE_BUG, (pos_x, pos_y))
+                            fen.blit(PICTURE_BUG_BLACK, (pos_x, pos_y))
                     pos_x += 100
             pos_x = pos_x_initial
             pos_y += 100
@@ -349,12 +427,14 @@ def player_search_action():
             replace_text(MSG_BUG_FOUND, FROG_EATING, 1300)
         player_turn = end_of_turn("player")
 
-def show_manifying_glass(pos_x, pos_y):
+def show_manifying_glass():
     '''
     Afficher une loupe lorsque l'on survole les cases de l'étang de l'adversaire
     '''
-    pos_x_initial = pos_x
-    pos_y_initial = pos_y
+    pos_x_initial = level.OPPONENT_POS_X
+    pos_x = level.OPPONENT_POS_X
+    pos_y_initial = level.OPPONENT_POS_Y
+    pos_y = level.OPPONENT_POS_Y
     #	Récupérer la position du clic
     if bugs_hidden == True:
         x,y = mouse_pos
@@ -366,8 +446,33 @@ def show_manifying_glass(pos_x, pos_y):
                         case = i*level.NUMBER_OF_COLUMN+(j+1)
                         if checkerboard_opponent[case-1] == "Empty" or checkerboard_opponent[case-1] == "Bugs_opponent":
                             #	Masquer la sourie
-                            #pygame.mouse.set_visible(False)
+                            #   pygame.mouse.set_visible(False)
                             fen.blit(MAGNIFYING_GLASS, (pos_x, pos_y))
+                    pos_x += 100
+            pos_x = pos_x_initial
+            pos_y += 100
+
+def show_red_cross():
+    '''
+    Afficher une croix lorsque l'on survole les cases de notre étang pour montrer que l'on ne peut pas réaliser d'action
+    '''
+    pos_x_initial = level.PLAYER_POS_X
+    pos_x = level.PLAYER_POS_X
+    pos_y_initial = level.PLAYER_POS_Y
+    pos_y = level.PLAYER_POS_Y
+    #	Récupérer la position du clic
+    if bugs_hidden == True:
+        x,y = mouse_pos
+        for i in range(0, level.NUMBER_OF_ROW, 1):
+            if pos_y_initial+(i*100) < y < (75+pos_y_initial)+(i*100):
+                for j in range(0, level.NUMBER_OF_COLUMN, 1):
+                    if pos_x_initial+(j*100) < x < (75+pos_x_initial)+(j*100):
+                        #	Calculer le numéro de la case
+                        case = i*level.NUMBER_OF_COLUMN+(j+1)
+                        if checkerboard_player[case-1] == "Empty":
+                            #	Masquer la sourie
+                            #   pygame.mouse.set_visible(False)
+                            fen.blit(RED_CROSS, (pos_x, pos_y))
                     pos_x += 100
             pos_x = pos_x_initial
             pos_y += 100
@@ -377,14 +482,18 @@ def replace_text(msg, frog_color, duration):
     Fonction pour remplacer de façon temporaire du texte
     '''
     # Effacer le contenu de l'écran
-    fen.fill(GREEN_LIGHT)
+    fen.fill(WHITE)
+    fen.blit(level.BACKGROUND_GAME, (0,0))
     display_checkerboard(checkerboard_player, level.PLAYER_POS_X, level.PLAYER_POS_Y)
     display_checkerboard(checkerboard_opponent, level.OPPONENT_POS_X, level.OPPONENT_POS_Y)
-    pygame.draw.rect(fen, WHITE, (0, 600, 1200, 200))
     fen.blit(frog_color, (0,600))
     fen.blit(ETANG_JOUEUR, (200, 25))
     fen.blit(ETANG_ADVERSAIRE, (850, 25))
     fen.blit(msg, (225, 650))
+    #   Call pause menu
+    RECT_PAUSE = fen.blit(PAUSE_MENU, (1100, 20))
+    if RECT_PAUSE.collidepoint(mouse_pos) and event.type == pygame.MOUSEBUTTONDOWN:
+        page = "pauseMenu"
     pygame.display.update()
     pygame.time.wait(duration)
 
@@ -441,18 +550,13 @@ def highScoreSaving():
     '''
     Comparer le score avec celui enregistré et remplacer s'il est meilleur
     '''
-    print("Procédure high-score")
     highScoreFile = open(DIRECTORYNAME + "/Data/HighScore.txt", "r", encoding="utf8")
     replacement = ""
     # Tester chaque ligne du fichier
     for line in highScoreFile:
-        print(line)
         if(line.find(level.levelName) != -1):
-            print("bon niveau")
             lineParsed = line.split(" ")
             actualScore = int(lineParsed[1])
-            print("actualScore", actualScore)
-            print("turn_counter", turn_counter)
             if (actualScore > turn_counter):
                 replacement = replacement + lineParsed[0] + " " + str(turn_counter) + "\n"
             else:
@@ -465,16 +569,149 @@ def highScoreSaving():
     highScoreFileWriting.write(replacement)
     highScoreFileWriting.close()
 
+def highScoreReading(currentLevel):
+    '''
+    Retrouver le meilleur score pour le niveau en cours
+    '''
+    highScoreFile = open(DIRECTORYNAME + "/Data/HighScore.txt", "r", encoding="utf8")
+    # Tester chaque ligne du fichier
+    for line in highScoreFile:
+        if(line.find(currentLevel.levelName) != -1):
+            lineParsed = line.split(" ")
+            highScore = int(lineParsed[1])
+            return highScore
+    highScoreFile.close()
+
+def resetHighScore():
+    '''
+    Remettre à zéro les scores
+    '''
+    scoreFile = open(DIRECTORYNAME + "/Data/HighScore.txt", "r", encoding="utf8")
+    replacement = ""
+    # Tester chaque ligne du fichier
+    for line in scoreFile:
+        lineParsed = line.split(" ")
+        replacement = replacement + lineParsed[0] + " " + "99" + "\n"
+    scoreFile.close()
+    # Modifier le contenu du fichier avec les modifications
+    resetScoreWriting = open(DIRECTORYNAME + "/Data/HighScore.txt", "w", encoding="utf8")
+    resetScoreWriting.write(replacement)
+    resetScoreWriting.close()
+
 def displayCounter(number, posX, posY):
     '''
-    Fonction pour afficher un compteur
+    Fonction pour afficher un compteur de chiffre
     '''
+    numberString = str(number)
+    if(len(numberString) == 1):
+        fen.blit(NUMBER_0_XL, (posX, posY))
+        fen.blit(chooseNumberCounter(numberString[0], "black"), (posX + 35, posY))
+    elif(len(numberString) == 2):
+        fen.blit(chooseNumberCounter(numberString[0], "black"), (posX, posY))
+        fen.blit(chooseNumberCounter(numberString[1], "black"), (posX + 35, posY))
+
+def displayLaurelWreath(currentLevel, posX, posY):
+    '''
+    Fonction pour afficher une couronne de laurier et le meilleur score
+    '''
+    highScoreFile = open(DIRECTORYNAME + "/Data/HighScore.txt", "r", encoding="utf8")
+    # Tester chaque ligne du fichier
+    for line in highScoreFile:
+        if(line.find(currentLevel) != -1):
+            lineParsed = line.split(" ")
+            numberString = lineParsed[1]
+            if(int(numberString) != 99):
+                fen.blit(LAUREL_WREATH, (posX + 100, posY + 75))
+                numberString = str(numberString)
+                if(len(numberString) == 2):
+                    fen.blit(NUMBER_0_XL_GOLD, (posX +15, posY+75))
+                    fen.blit(chooseNumberCounter(numberString[0], "gold"), (posX + 50, posY + 75))
+                elif(len(numberString) == 3):
+                    fen.blit(chooseNumberCounter(numberString[0], "gold"), (posX + 15, posY + 75))
+                    fen.blit(chooseNumberCounter(numberString[1], "gold"), (posX + 50, posY + 75))
+    highScoreFile.close()
+
+def chooseNumberCounter(number, color):
+    if(color == "black"):
+        match number:
+            case "0":
+                return NUMBER_0_XL
+            case "1":
+                return NUMBER_1_XL
+            case "2":
+                return NUMBER_2_XL
+            case "3":
+                return NUMBER_3_XL
+            case "4":
+                return NUMBER_4_XL
+            case "5":
+                return NUMBER_5_XL
+            case "6":
+                return NUMBER_6_XL
+            case "7":
+                return NUMBER_7_XL
+            case "8":
+                return NUMBER_8_XL
+            case "9":
+                return NUMBER_9_XL
+    elif(color == "gold"):
+        match number:
+            case "0":
+                return NUMBER_0_XL_GOLD
+            case "1":
+                return NUMBER_1_XL_GOLD
+            case "2":
+                return NUMBER_2_XL_GOLD
+            case "3":
+                return NUMBER_3_XL_GOLD
+            case "4":
+                return NUMBER_4_XL_GOLD
+            case "5":
+                return NUMBER_5_XL_GOLD
+            case "6":
+                return NUMBER_6_XL_GOLD
+            case "7":
+                return NUMBER_7_XL_GOLD
+            case "8":
+                return NUMBER_8_XL_GOLD
+            case "9":
+                return NUMBER_9_XL_GOLD
+
+def initialisation_of_variables():
+    '''
+    Réinitialiser les variables pour chaque niveau
+    '''
+    global turn_counter
+    global checkerboard_player
+    global checkerboard_opponent
+    global initialisation_player
+    global initialisation_opponent
+    global player_turn
+    global bugs_hidden
+    global opponent_bugs_hidden
+    global scoreSaving
+
+    turn_counter = 0
+    checkerboard_player = []
+    checkerboard_opponent = []
+    initialisation_player = False
+    initialisation_opponent = False
+    player_turn = True
+    bugs_hidden = False
+    opponent_bugs_hidden = False
+    scoreSaving = True
+
+####
+#
+#	Classes
+#
+####
 
 class Level:
     '''
     Définit les variables propres au niveau
     '''
-    def __init__(self, levelName, player_bugs, opponent_bugs, bugs_to_hide, PLAYER_POS_X, PLAYER_POS_Y, OPPONENT_POS_X, OPPONENT_POS_Y, NUMBER_OF_COLUMN, NUMBER_OF_ROW):
+    def __init__(self, levelName, player_bugs, opponent_bugs, bugs_to_hide, PLAYER_POS_X, PLAYER_POS_Y, OPPONENT_POS_X, OPPONENT_POS_Y, NUMBER_OF_COLUMN, NUMBER_OF_ROW, BACKGROUND_GAME):
         self._levelName = levelName
         self._player_bugs = player_bugs
         self._opponent_bugs = opponent_bugs
@@ -485,6 +722,7 @@ class Level:
         self._OPPONENT_POS_Y = OPPONENT_POS_Y
         self._NUMBER_OF_COLUMN = NUMBER_OF_COLUMN
         self._NUMBER_OF_ROW = NUMBER_OF_ROW
+        self._BACKGROUND_GAME = BACKGROUND_GAME
 
     @property
     def levelName(self):
@@ -566,30 +804,14 @@ class Level:
     def NUMBER_OF_ROW(self, value):
         self._NUMBER_OF_ROW = value
 
+    @property
+    def BACKGROUND_GAME(self):
+        return self._BACKGROUND_GAME
 
-def initialisation_of_variables():
-    '''
-    Réinitialiser les variables pour chaque niveau
-    '''
-    global turn_counter
-    global checkerboard_player
-    global checkerboard_opponent
-    global initialisation_player
-    global initialisation_opponent
-    global player_turn
-    global bugs_hidden
-    global opponent_bugs_hidden
-    global scoreSaving
+    @BACKGROUND_GAME.setter
+    def BACKGROUND_GAME(self, value):
+        self._BACKGROUND_GAME = value
 
-    turn_counter = 0
-    checkerboard_player = []
-    checkerboard_opponent = []
-    initialisation_player = False
-    initialisation_opponent = False
-    player_turn = True
-    bugs_hidden = False
-    opponent_bugs_hidden = False
-    scoreSaving = True
 
 ####
 #
@@ -608,14 +830,14 @@ while RUNNING:
     if page == "menu":
         fen.fill(GREEN_LIGHT)
         fen.blit(BACKGROUND_MENU, (0,0))
-        fen.blit(TITLE, TITLE_RECT)
-        RECT_MENU_PLAY = fen.blit(MENU_PLAY, (500, 400))
-        RECT_MENU_OPTION = fen.blit(MENU_OPTION, (500, 500))
-        RECT_MENU_CREDIT = fen.blit(MENU_CREDIT, (500, 600))
-        RECT_MENU_QUIT = fen.blit(MENU_QUIT, (500, 700))
+        fen.blit(TITLE, TITLE_CENTER)
+        RECT_MENU_PLAY =fen.blit(MENU_PLAY, MENU_PLAY_CENTER)
+        RECT_MENU_OPTION = fen.blit(MENU_OPTION, MENU_OPTION_CENTER)
+        RECT_MENU_CREDIT = fen.blit(MENU_CREDIT, MENU_CREDIT_CENTER)
+        RECT_MENU_QUIT = fen.blit(MENU_QUIT, MENU_QUIT_CENTER)
         #initialisation of sound
         checkSoundStatus()
-        # Check if position is in the rect
+        # Check if mouse position is in the rect
         if RECT_MENU_PLAY.collidepoint(mouse_pos) and event.type == pygame.MOUSEBUTTONDOWN:
             page = "menu_level"
         elif RECT_MENU_OPTION.collidepoint(mouse_pos) and event.type == pygame.MOUSEBUTTONDOWN:
@@ -627,86 +849,142 @@ while RUNNING:
 
     elif page == "credits":
         fen.fill(GREEN_LIGHT)
-        fen.blit(MENU_CREDIT_BRUNO, (200, 200))
-        fen.blit(MENU_CREDIT_GRAPHISME, (200, 300))
-        fen.blit(MENU_CREDIT_FONT, (200, 400))
-        fen.blit(MENU_CREDIT_SOUND, (200, 500))
-        RECT_RETURN_MENU = fen.blit(RETURN_MENU, (225, 750))
+        fen.blit(MENU_CREDIT_BRUNO, MENU_CREDIT_BRUNO_CENTER)
+        fen.blit(MENU_CREDIT_GRAPHISME, MENU_CREDIT_GRAPHISME_CENTER)
+        fen.blit(MENU_CREDIT_FONT, MENU_CREDIT_FONT_CENTER)
+        fen.blit(MENU_CREDIT_SOUND, MENU_CREDIT_SOUND_CENTER)
+        RECT_RETURN_MENU = fen.blit(RETURN_MENU, RETURN_MENU_FROM_MENU_CENTER)
         if RECT_RETURN_MENU.collidepoint(mouse_pos) and event.type == pygame.MOUSEBUTTONDOWN:
             page = "menu"
 
     elif page == "menu_level":
         fen.fill(GREEN_LIGHT)
         RECT_LEVEL_1 = fen.blit(LEVEL_1, (125,200))
+        displayLaurelWreath("level_01", 125, 200)
         RECT_LEVEL_2 = fen.blit(LEVEL_2, (325,200))
+        displayLaurelWreath("level_02", 325, 200)
         RECT_LEVEL_3 = fen.blit(LEVEL_3, (525,200))
+        displayLaurelWreath("level_03", 525, 200)       
         RECT_LEVEL_4 = fen.blit(LEVEL_4, (725,200))
+        displayLaurelWreath("level_04", 725, 200)   
         RECT_LEVEL_5 = fen.blit(LEVEL_5, (925,200))
+        displayLaurelWreath("level_05", 925, 200)   
         RECT_LEVEL_6 = fen.blit(LEVEL_6, (125,500))
+        displayLaurelWreath("level_06", 125, 500)   
         RECT_LEVEL_7 = fen.blit(LEVEL_7, (325,500))
+        displayLaurelWreath("level_07", 325, 500)  
         RECT_LEVEL_8 = fen.blit(LEVEL_8, (525,500))
+        displayLaurelWreath("level_08", 525, 500)  
         RECT_LEVEL_9 = fen.blit(LEVEL_9, (725,500))
+        displayLaurelWreath("level_09", 725, 500)  
         RECT_LEVEL_10 = fen.blit(LEVEL_10, (925,500))
-        RECT_RETURN_MENU = fen.blit(RETURN_MENU, (225, 750))
+        displayLaurelWreath("level_10", 925, 500)  
+        RECT_RETURN_MENU = fen.blit(RETURN_MENU, RETURN_MENU_FROM_MENU_CENTER)
         if RECT_LEVEL_1.collidepoint(mouse_pos) and event.type == pygame.MOUSEBUTTONDOWN:
-            page = choose_level("level1")
+            nextPage = choose_level("level1")
+            page = "loadingPage"
         if RECT_LEVEL_2.collidepoint(mouse_pos) and event.type == pygame.MOUSEBUTTONDOWN:
-            page = choose_level("level2")
+            nextPage = choose_level("level2")
+            page = "loadingPage"
         if RECT_LEVEL_3.collidepoint(mouse_pos) and event.type == pygame.MOUSEBUTTONDOWN:
-            page = choose_level("level3")
+            nextPage = choose_level("level3")
+            page = "loadingPage"
         if RECT_LEVEL_4.collidepoint(mouse_pos) and event.type == pygame.MOUSEBUTTONDOWN:
-            page = choose_level("level4")
+            nextPage = choose_level("level4")
+            page = "loadingPage"
         if RECT_LEVEL_5.collidepoint(mouse_pos) and event.type == pygame.MOUSEBUTTONDOWN:
-            page = choose_level("level5")
+            nextPage = choose_level("level5")
+            page = "loadingPage"
         if RECT_LEVEL_6.collidepoint(mouse_pos) and event.type == pygame.MOUSEBUTTONDOWN:
-            page = choose_level("level6")
+            nextPage = choose_level("level6")
+            page = "loadingPage"
         if RECT_LEVEL_7.collidepoint(mouse_pos) and event.type == pygame.MOUSEBUTTONDOWN:
-            page = choose_level("level7")
+            nextPage = choose_level("level7")
+            page = "loadingPage"
         if RECT_LEVEL_8.collidepoint(mouse_pos) and event.type == pygame.MOUSEBUTTONDOWN:
-            page = choose_level("level8")
+            nextPage = choose_level("level8")
+            page = "loadingPage"
         if RECT_LEVEL_9.collidepoint(mouse_pos) and event.type == pygame.MOUSEBUTTONDOWN:
-            page = choose_level("level9")
+            nextPage = choose_level("level9")
+            page = "loadingPage"
         if RECT_LEVEL_10.collidepoint(mouse_pos) and event.type == pygame.MOUSEBUTTONDOWN:
-            page = choose_level("level10")
+            nextPage = choose_level("level10")
+            page = "loadingPage"
         if RECT_RETURN_MENU.collidepoint(mouse_pos) and event.type == pygame.MOUSEBUTTONDOWN:
             page = "menu"
 
     elif page == "options":
         fen.fill(GREEN_LIGHT)
-        RECT_RETURN_MENU = fen.blit(RETURN_MENU, (225, 750))
-        fen.blit(MSG_SOUND_OPTION, (225, 250))
+        RECT_RETURN_MENU = fen.blit(RETURN_MENU, RETURN_MENU_FROM_MENU_CENTER)
+        fen.blit(OPTION_SOUND_OPTION, (225, 250))
         if(checkSoundStatus() == True):
-            RECT_SOUND_MENU = fen.blit(MSG_SOUND_ON, (350, 250))
+            RECT_SOUND_MENU = fen.blit(OPTION_SOUND_ON, (350, 250))
         else:
-            RECT_SOUND_MENU = fen.blit(MSG_SOUND_OFF, (350, 250))
-        
+            RECT_SOUND_MENU = fen.blit(OPTION_SOUND_OFF, (350, 250))
         if RECT_SOUND_MENU.collidepoint(mouse_pos) and event.type == pygame.MOUSEBUTTONDOWN:
             modifySoundStatus()
             pygame.time.wait(250)
+        RECT_ERASE_SCORE = fen.blit(OPTION_ERASE, (225,350))
+        if RECT_ERASE_SCORE.collidepoint(mouse_pos) and event.type == pygame.MOUSEBUTTONDOWN:
+            resetHighScore()
         if RECT_RETURN_MENU.collidepoint(mouse_pos) and event.type == pygame.MOUSEBUTTONDOWN:
             page = "menu"
-        '''
-        Rajouter dans menu option pour effacer les sauvegardes
-        '''
 
     elif page == "level":
         #	Création des listes correspondantes aux damiers
         initialisation_player = initialisation_checkerboard_player()
         initialisation_opponent = initialisation_checkerboard_opponent()
-        #   Affichage de l'arrière plan
-        fen.fill(GREEN_LIGHT)
+        fen.fill(WHITE)
+        fen.blit(level.BACKGROUND_GAME, (0,0))
+        if level.levelName == "level_06":
+            checkerboard_player[6] = "Empty_cliked"
+            checkerboard_player[7] = "Empty_cliked"
+            checkerboard_player[11] = "Empty_cliked"
+            checkerboard_player[12] = "Empty_cliked"
+        elif level.levelName == "level_07":
+            checkerboard_player[5] = "Empty_cliked"
+            checkerboard_player[10] = "Empty_cliked"
+            checkerboard_player[15] = "Empty_cliked"
+        elif level.levelName == "level_08":
+            checkerboard_player[6] = "Empty_cliked"
+            checkerboard_player[7] = "Empty_cliked"
+            checkerboard_player[8] = "Empty_cliked"
+            checkerboard_player[11] = "Empty_cliked"
+            checkerboard_player[12] = "Empty_cliked"
+            checkerboard_player[13] = "Empty_cliked"
+        elif level.levelName == "level_09":
+            checkerboard_player[15] = "Empty_cliked"
+            checkerboard_player[16] = "Empty_cliked"
+            checkerboard_player[17] = "Empty_cliked"
+            checkerboard_player[18] = "Empty_cliked"
+            checkerboard_player[19] = "Empty_cliked"
+            checkerboard_player[20] = "Empty_cliked"
+            checkerboard_player[21] = "Empty_cliked"
+            checkerboard_player[22] = "Empty_cliked"
+            checkerboard_player[23] = "Empty_cliked"
+            checkerboard_player[24] = "Empty_cliked"
+        elif level.levelName == "level_10":
+            checkerboard_player[0] = "Empty_cliked"
+            checkerboard_player[1] = "Empty_cliked"
+            checkerboard_player[2] = "Empty_cliked"
+            checkerboard_player[3] = "Empty_cliked"
+            checkerboard_player[4] = "Empty_cliked"
+            checkerboard_player[5] = "Empty_cliked"
+            checkerboard_player[6] = "Empty_cliked"
+            checkerboard_player[7] = "Empty_cliked"
+            checkerboard_player[8] = "Empty_cliked"
+            checkerboard_player[9] = "Empty_cliked"
+
         display_checkerboard(checkerboard_player, level.PLAYER_POS_X, level.PLAYER_POS_Y)
-        pygame.draw.rect(fen, WHITE, (0, 600, 1200, 200))
         fen.blit(ETANG_JOUEUR, (200, 25))
-        '''
-        // Menu MSG_PLAYER_TURN_RULES
-        // Options musique
-        // quitter to menu
-        '''
-
-
+        fen.blit(FROG_GREEN, (0,600))
+        #   show pause menu
+        RECT_PAUSE = fen.blit(PAUSE_MENU, (1100, 20))
+        if RECT_PAUSE.collidepoint(mouse_pos) and event.type == pygame.MOUSEBUTTONDOWN:
+            pygame.time.wait(250)
+            page = "pauseMenu"
+        #   show informations at beginning of game
         if bugs_hidden == False:
-            fen.blit(FROG_GREEN, (0,600))
             fen.blit(MSG_GAME_START, (225, 650))
             fen.blit(MSG_GAME_START_RULES, (225, 700))
             show_bugs_number_to_hide()
@@ -718,8 +996,9 @@ while RUNNING:
             display_checkerboard(checkerboard_opponent, level.OPPONENT_POS_X, level.OPPONENT_POS_Y)
             #	Hidde bugs in opponent pond
             opponent_bugs_hidden = opponent_hide_bugs(level.opponent_bugs)
-            #	Hidde bugs in opponent pond
-            show_manifying_glass(level.OPPONENT_POS_X, level.OPPONENT_POS_Y)
+            #	Show manifying glass or red cross when over case
+            show_manifying_glass()
+            show_red_cross()
             if level.player_bugs > 0 and level.opponent_bugs > 0:
                 if player_turn == True:
                     fen.blit(FROG_GREEN, (0,600))
@@ -731,6 +1010,13 @@ while RUNNING:
                     opponent_turn_start = True
                 else:
                     if opponent_turn_start == True and player_turn == False:
+                        fen.fill(WHITE)
+                        fen.blit(level.BACKGROUND_GAME, (0,0))
+                        display_checkerboard(checkerboard_player, level.PLAYER_POS_X, level.PLAYER_POS_Y)
+                        display_checkerboard(checkerboard_opponent, level.OPPONENT_POS_X, level.OPPONENT_POS_Y)
+                        fen.blit(ETANG_JOUEUR, (200, 25))
+                        fen.blit(ETANG_ADVERSAIRE, (850, 25))
+                        fen.blit(PAUSE_MENU, (1100, 20))
                         fen.blit(FROG_DISAPPOINTED, (0,600))
                         fen.blit(MSG_OPPONNENT_TURN, (225, 650))
                         pygame.display.update()
@@ -760,9 +1046,50 @@ while RUNNING:
                     if(scoreSaving == True):
                         highScoreSaving()
                         scoreSaving = False
-                RECT_RETURN_MENU = fen.blit(RETURN_MENU, (225, 750))
+                RECT_RETURN_MENU = fen.blit(RETURN_MENU, RETURN_MENU_FROM_MENU_CENTER)
                 if RECT_RETURN_MENU.collidepoint(mouse_pos) and event.type == pygame.MOUSEBUTTONDOWN:
                     page = "menu"
+
+    elif page == "pauseMenu":
+        '''
+        Menu de pause
+        '''
+        fen.blit(BACKGROUND_PAUSE, (100, 100))
+        fen.blit(MENU_TURN_NUMBER, (425, 350))
+        displayCounter(turn_counter, 725, 350)
+        fen.blit(MENU_PAUSE, MENU_PAUSE_CENTER)
+        RECT_PAUSE = fen.blit(PAUSE_MENU, (1100, 20))
+        if RECT_PAUSE.collidepoint(mouse_pos) and event.type == pygame.MOUSEBUTTONDOWN:
+            pygame.time.wait(250)
+            page = "level"
+        RECT_RETURN_GAME = fen.blit(RETURN_GAME, RETURN_GAME_CENTER)
+        if RECT_RETURN_GAME.collidepoint(mouse_pos) and event.type == pygame.MOUSEBUTTONDOWN:
+            page = "level"
+        # Option pour la gestion du son
+        fen.blit(OPTION_SOUND_OPTION, (425, 250))
+        if(checkSoundStatus() == True):
+            RECT_SOUND_MENU = fen.blit(OPTION_SOUND_ON, (600, 250))
+        else:
+            RECT_SOUND_MENU = fen.blit(OPTION_SOUND_OFF, (600, 250))
+        if RECT_SOUND_MENU.collidepoint(mouse_pos) and event.type == pygame.MOUSEBUTTONDOWN:
+            modifySoundStatus()
+            pygame.time.wait(250)
+        # Afficher le meilleur score
+        fen.blit(MENU_PAUSE_HIGH_SCORE, (425, 450))
+        if highScoreReading(level) != 99:
+            displayCounter(highScoreReading(level), 725, 450)
+        else:
+            displayCounter(0, 725, 450)
+        #   Retourner au menu
+        RECT_RETURN_MENU = fen.blit(RETURN_MENU_FROM_PAUSE, RETURN_MENU_FROM_PAUSE_CENTER)
+        if RECT_RETURN_MENU.collidepoint(mouse_pos) and event.type == pygame.MOUSEBUTTONDOWN:
+            nextPage = "menu"
+            page = "loadingPage"
+
+    elif page =="loadingPage":
+        fen.fill(BLUE_DARK)
+        if (event.type == pygame.MOUSEBUTTONUP):
+            page = nextPage    
 
     #	Mise à jour de l'écran
     pygame.display.update()

@@ -4,6 +4,18 @@
 
 Project of battleship-like game under Python (3.10.6) and Pygame (2.1.2).
 
+## Version 0.3.0 (14th december 2022)
+
+- Update of graphics
+- Add a turn counter
+- Add a pause menu
+- Add high-score
+- Add option to reset high-score
+
+![screenshot](https://raw.githubusercontent.com/BrunoMaucourt/Help-frog/main/Pictures/Screenshots/Screenshot_version3.png)
+
+![screenshot](https://raw.githubusercontent.com/BrunoMaucourt/Help-frog/main/Pictures/Screenshots/Screenshot_version3_pause.png)
+
 ## Version 0.2.1 (14th december 2022)
 
 - Code refactoring (class to create level)
@@ -24,7 +36,7 @@ Project of battleship-like game under Python (3.10.6) and Pygame (2.1.2).
 
 Code and illustrations of Help(frog) are distributed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license.
 
-This project include elements with different licenses. They are not property of Bruno Maucourt.
+This project includes elements with different licenses. They are not property of Bruno Maucourt.
 
 - Font Magical story comes from [Gilar Studio](https://www.dafont.com/magical-story.font) and is free for personal use.
 
