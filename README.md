@@ -4,7 +4,7 @@
 
 Project of battleship-like game under Python (3.10.6) and Pygame (2.1.2).
 
-## Version 0.3.0 (14th december 2022)
+## Version 0.3.0 (17th january 2023)
 
 - Update of graphics
 - Add a turn counter
@@ -14,11 +14,11 @@ Project of battleship-like game under Python (3.10.6) and Pygame (2.1.2).
 
 ![screenshot](https://raw.githubusercontent.com/BrunoMaucourt/Help-frog/main/Pictures/Screenshots/Screenshot_version3.png)
 
-![screenshot](https://raw.githubusercontent.com/BrunoMaucourt/Help-frog/main/Pictures/Screenshots/Screenshot_version3_pause.png)
+![screenshot](https://raw.githubusercontent.com/BrunoMaucourt/Help-frog/main/Pictures/Screenshots/Screenshot_version3_1.png)
 
 ## Version 0.2.1 (14th december 2022)
 
-- Code refactoring (class to create level)
+- Code refactoring (class to create levels)
 
 ## Version 0.2.0 (26th november 2022)
 
