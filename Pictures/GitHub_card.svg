@@ -32,7 +32,7 @@
    inkscape:document-units="mm"
    showgrid="false"
    inkscape:zoom="0.6572807"
-   inkscape:cx="629.86788"
+   inkscape:cx="628.34646"
    inkscape:cy="242.66649"
    inkscape:window-width="1440"
    inkscape:window-height="847"
@@ -1802,7 +1802,7 @@
    xml:space="preserve"
    transform="scale(26.458333)"
    id="text676"
-   style="fill:#e9800e;stroke-width:0.07559055;fill-rule:evenodd;white-space:pre;shape-inside:url(#rect678)" /><g
+   style="white-space:pre;shape-inside:url(#rect678);display:inline;fill:#e9800e;fill-rule:evenodd;stroke-width:0.0755906" /><g
    class="Graphic"
    id="g2732"
    transform="translate(67512.712,-9828.1139)"

@@ -4,6 +4,14 @@
 
 Project of battleship-like game under Python (3.10.6) and Pygame (2.1.2).
 
+## Version 0.4.0 (29th january 2023)
+
+- Update of graphics
+- Corrections of bugs
+- Translation of comments (from french to english)
+
+![screenshot](https://raw.githubusercontent.com/BrunoMaucourt/Help-frog/main/Pictures/Screenshots/Screenshot_version4.png)
+
 ## Version 0.3.0 (17th january 2023)
 
 - Update of graphics
@@ -13,8 +21,6 @@ Project of battleship-like game under Python (3.10.6) and Pygame (2.1.2).
 - Add option to reset high-score
 
 ![screenshot](https://raw.githubusercontent.com/BrunoMaucourt/Help-frog/main/Pictures/Screenshots/Screenshot_version3.png)
-
-![screenshot](https://raw.githubusercontent.com/BrunoMaucourt/Help-frog/main/Pictures/Screenshots/Screenshot_version3_1.png)
 
 ## Version 0.2.1 (14th december 2022)
 
@@ -48,3 +54,4 @@ Thanks for checking out my game. I hope you enjoy it! Feel free to contact me.
 
 - Bruno Maucourt
 - contact[at sign]brunomaucourt.com
+- https://brunomaucourt.com/

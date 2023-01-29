@@ -1,25 +1,25 @@
 ########################
-#	HelpFrog
+#	Help(Frog)
 #	Bruno MAUCOURT
-#	December 2022
+#	January 2023
 #	Python 3.10.6
 #	Pygame 2.1.2
 ########################
 
-#   Importer les modules
+#   Import of modules
 import pygame
 import sys
 import os
 import random
 
-# Récupérer le chemin du dossier
+# Get current folder path
 DIRECTORYNAME = os.getcwd()
 
 pygame.init()
 
 ####
 #
-#	Initialiser l'écran
+#	Screen initialization
 #
 ####
 
@@ -27,12 +27,12 @@ WINDOW_WIDTH = 1200
 WINDOW_HEIGHT = 800
 
 fen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
-#   Choisir le nom de l'écran
+#   Set name of screen
 pygame.display.set_caption("help(frog)")
 
 ####
 #
-#	Définir les couleurs
+#	Set colors constants
 #
 ####
 
@@ -48,33 +48,33 @@ GREEN_DARK = (52,131,6)
 
 ####
 #
-#	Gestion du temps
+#	Time
 #
 ####
 
-# Nombre de frames par secondes
+#   Number of frames per seconde
 FPS = 25
 
-#   Permettra d'attendre avant de rafraîchir l'affichage
-horloge = pygame.time.Clock()
+#   Wait before update screen
+CLOCK = pygame.time.Clock()
 
 ####
 #
-#	Initialiser le texte
+#	Text initialization
 #
 ####
 
-# Taille (en points) utilisée pour les textes qui sont affichés
+#   Define size of fonts
 FONT_CLASSIC_SIZE = 25
 FONT_MENU_SIZE = 50
 FONT_TITLE_SIZE = 150
 
-# Préparation de la Police utilisée pour l'affichage des textes
+#   Define font before to display texts
 FONT_CLASSIC = pygame.font.Font("Fonts/Magical_Story.ttf", FONT_CLASSIC_SIZE)
 FONT_MENU = pygame.font.Font("Fonts/Magical_Story.ttf", FONT_MENU_SIZE)
 FONT_TITLE = pygame.font.Font("Fonts/Magical_Story.ttf", FONT_TITLE_SIZE)
 
-# Préparation du rendu du texte
+#   Initialize text
 TITLE = FONT_TITLE.render("help(frog)", True, WHITE)
 MENU_PLAY = FONT_MENU.render("Jouer", True, BLACK)
 MENU_OPTION = FONT_MENU.render("Options", True, BLACK)
@@ -156,7 +156,7 @@ MSG_END_GAME = FONT_CLASSIC.render("La partie est finie !", True, BLACK)
 MSG_END_LOSE = FONT_CLASSIC.render("Saperlipopette, la méchante grenouille a volé tous mes insectes. Je ne te remercie pas pour ton aide.", True, BLACK)
 MSG_END_WIN = FONT_CLASSIC.render("Hourra, j'ai bien mangé. Merci pour ton aide.", True, BLACK)
 
-# Pour calculer la taille que prend le texte et le centrer
+#   Center texts
 TITLE_CENTER = TITLE.get_rect(center=(WINDOW_WIDTH/2, 150))
 MENU_PLAY_CENTER = MENU_PLAY.get_rect(center=(WINDOW_WIDTH/2, 400))
 MENU_OPTION_CENTER = MENU_OPTION.get_rect(center=(WINDOW_WIDTH/2, 500))
@@ -177,7 +177,7 @@ MENU_CREDIT_SOUND_CENTER = MENU_CREDIT_SOUND.get_rect(center=(WINDOW_WIDTH/2, 50
 
 ####
 #
-#	Initialiser les images
+#	Initialize images
 #
 ####
 
@@ -209,7 +209,7 @@ BACKGROUND_GAME9 = pygame.image.load("Pictures/background_game09.png")
 BACKGROUND_GAME10 = pygame.image.load("Pictures/background_game10.png")
 BACKGROUND_PAUSE = pygame.image.load("Pictures/background_pause.png").convert_alpha()
 
-#	Modifier la taille d'images
+#	Edit size of pictures
 PICTURE_BUG_BLACK = pygame.transform.scale(PICTURE_BUG_BLACK, (75, 75))
 PICTURE_BUG_GREEN = pygame.transform.scale(PICTURE_BUG_GREEN, (75, 75))
 PICTURE_BUG_RED = pygame.transform.scale(PICTURE_BUG_RED, (75, 75))
@@ -224,12 +224,12 @@ LAUREL_WREATH = pygame.transform.scale(LAUREL_WREATH, (45, 45))
 RED_CROSS = pygame.transform.scale(RED_CROSS, (75, 75))
 BACKGROUND_MENU = pygame.transform.scale(BACKGROUND_MENU, (1200, 800))
 
-#	Utiliser un logo pour la fenêtre
+#	Logo for window
 pygame.display.set_icon(LOGO_FROG)
 
 ####
 #
-#	Initialiser les bruitages
+#	Initialize sounds
 #
 ####
 
@@ -240,7 +240,7 @@ SUCCES_SOUND = pygame.mixer.Sound("Sounds/Succes.mp3")
 
 ####
 #
-#	Variables à initialiser en début de partie
+#	Variables to initialize at the start of the game
 #
 ####
 
@@ -249,13 +249,13 @@ RUNNING = True
 
 ####
 #
-#	Fonctions
+#	Functions
 #
 ####
 
 def choose_level(levelNumber):
     '''
-    Fonction pour le choix du niveau
+    Function to create and choose level
     '''
     global level
     initialisation_of_variables()
@@ -307,7 +307,6 @@ def initialisation_checkerboard_opponent():
 
 def display_checkerboard(perso, pos_x, pos_y):
     position = 0
-    #global checkerboard_player
     pos_x_initial = pos_x
     for i in range(0,level.NUMBER_OF_ROW,1):
         for j in range(0,level.NUMBER_OF_COLUMN,1):
@@ -365,7 +364,9 @@ def opponent_hide_bugs(bugs_number):
         return True
 
 def show_bugs_number_to_hide():
-        #global bugs_to_hide
+        '''
+        Function that count number of bugs to hidde
+        '''
         fen.blit(BUGS_NUMBER_TO_HIDE, (600, 25))
         if level.bugs_to_hide ==1:
             fen.blit(NUMBER_1, (800, 25))
@@ -379,16 +380,19 @@ def show_bugs_number_to_hide():
             fen.blit(NUMBER_5, (800, 25))
 
 def show_bugs_to_hide(pos_x, pos_y):
+    '''
+    Function that display a bug picture when mouse is over case of player checkerboard
+    '''
     pos_x_initial = pos_x
     pos_y_initial = pos_y
-    #	Récupérer la position du clic
+    #	Get position of click
     if bugs_hidden == False:
         x,y = mouse_pos
         for i in range(0, level.NUMBER_OF_ROW, 1):
             if pos_y_initial+(i*100) < y < (75+pos_y_initial)+(i*100):
                 for j in range(0, level.NUMBER_OF_COLUMN, 1):
                     if pos_x_initial+(j*100) < x < (75+pos_x_initial)+(j*100):
-                        #	Calculer le numéro de la case
+                        #	Calculate new number of case
                         case = i*level.NUMBER_OF_COLUMN+(j+1)
                         if checkerboard_player[case-1] == "Empty":
                             #pygame.mouse.set_visible(False)
@@ -399,7 +403,7 @@ def show_bugs_to_hide(pos_x, pos_y):
 
 def end_of_turn(perso):
     '''
-    Fonction pour changer de tour
+    Function to change turn number
     '''
     global turn_counter
     if perso == "player":
@@ -410,7 +414,7 @@ def end_of_turn(perso):
 
 def player_search_action():
     '''
-    Action lorsque le joueur clique sur une case de l'étang adverse
+    Player action after click on case in opponnent checkerboard
     '''
     global checkerboard_opponent
     global opponent_bugs
@@ -429,23 +433,23 @@ def player_search_action():
 
 def show_manifying_glass():
     '''
-    Afficher une loupe lorsque l'on survole les cases de l'étang de l'adversaire
+    Display a manifying glass when mouse is ovser case in opponnent checkerboard
     '''
     pos_x_initial = level.OPPONENT_POS_X
     pos_x = level.OPPONENT_POS_X
     pos_y_initial = level.OPPONENT_POS_Y
     pos_y = level.OPPONENT_POS_Y
-    #	Récupérer la position du clic
+    #	Get position of click
     if bugs_hidden == True:
         x,y = mouse_pos
         for i in range(0, level.NUMBER_OF_ROW, 1):
             if pos_y_initial+(i*100) < y < (75+pos_y_initial)+(i*100):
                 for j in range(0, level.NUMBER_OF_COLUMN, 1):
                     if pos_x_initial+(j*100) < x < (75+pos_x_initial)+(j*100):
-                        #	Calculer le numéro de la case
+                        #	Calculate new number of case
                         case = i*level.NUMBER_OF_COLUMN+(j+1)
                         if checkerboard_opponent[case-1] == "Empty" or checkerboard_opponent[case-1] == "Bugs_opponent":
-                            #	Masquer la sourie
+                            #	Hidde mouse
                             #   pygame.mouse.set_visible(False)
                             fen.blit(MAGNIFYING_GLASS, (pos_x, pos_y))
                     pos_x += 100
@@ -454,13 +458,13 @@ def show_manifying_glass():
 
 def show_red_cross():
     '''
-    Afficher une croix lorsque l'on survole les cases de notre étang pour montrer que l'on ne peut pas réaliser d'action
+    Display a red cross when mouse is over player checkerboard after hidde of bugs
     '''
     pos_x_initial = level.PLAYER_POS_X
     pos_x = level.PLAYER_POS_X
     pos_y_initial = level.PLAYER_POS_Y
     pos_y = level.PLAYER_POS_Y
-    #	Récupérer la position du clic
+    #	Get mouse position
     if bugs_hidden == True:
         x,y = mouse_pos
         for i in range(0, level.NUMBER_OF_ROW, 1):
@@ -479,9 +483,9 @@ def show_red_cross():
 
 def replace_text(msg, frog_color, duration):
     '''
-    Fonction pour remplacer de façon temporaire du texte
+    Function that replace text
     '''
-    # Effacer le contenu de l'écran
+    #   Erase element in screen
     fen.fill(WHITE)
     fen.blit(level.BACKGROUND_GAME, (0,0))
     display_checkerboard(checkerboard_player, level.PLAYER_POS_X, level.PLAYER_POS_Y)
@@ -499,8 +503,7 @@ def replace_text(msg, frog_color, duration):
 
 def checkSoundStatus():
     '''
-    Fonction pour vérifier si le son est activé ou désactivé
-    Vérifier l'information dans le fichier Options.txt
+    Function that check in Options.txt file if sound is actived or disabled
     '''
     SOUND_MUTE = 0
     SOUND_PLAY = 1
@@ -521,15 +524,15 @@ def checkSoundStatus():
 
 def modifySoundStatus():
     '''
-    Fonction pour gérer le niveau sonore
-    Modifier l'information dans le fichier Options.txt
-    Recherche la ligne Sound puis modifie son contenu par celui de la variable changes
+    Sound option
+    Edit data in Options.txt file
+    Search sound line in file then edit with new status
     '''
     soundFile = open(DIRECTORYNAME + "/Data/Options.txt", "r", encoding="utf8")
     replacement = ""
-    # Tester chaque ligne du fichier
+    #   Read each lines of options file
     for line in soundFile:
-        # Enlever les espaces vides à l'avant et à la fin de la chaine de caractère
+        #   Remove empties spaces before and after string
         line = line.strip()
         if (line == "Sound: ON"):
             changes = line.replace("Sound: ON", "Sound: OFF")
@@ -540,7 +543,7 @@ def modifySoundStatus():
         else:
             replacement = replacement + line + "\n"
     soundFile.close()
-    # Modifier le contenu du fichier avec les modifications
+    #   Edit options file
     soundFileWriting = open(DIRECTORYNAME + "/Data/Options.txt", "w", encoding="utf8")
     soundFileWriting.write(replacement)
     soundFileWriting.close()
@@ -548,11 +551,11 @@ def modifySoundStatus():
 
 def highScoreSaving():
     '''
-    Comparer le score avec celui enregistré et remplacer s'il est meilleur
+    Compare highscore in file with new score in game and write new highscore if it's better
     '''
     highScoreFile = open(DIRECTORYNAME + "/Data/HighScore.txt", "r", encoding="utf8")
     replacement = ""
-    # Tester chaque ligne du fichier
+    #   Read each lines of highscore file
     for line in highScoreFile:
         if(line.find(level.levelName) != -1):
             lineParsed = line.split(" ")
@@ -564,17 +567,17 @@ def highScoreSaving():
         else:
             replacement = replacement + line #+ "\n"
     highScoreFile.close()
-    # Modifier le contenu du fichier avec les modifications
+    #   Edit highscore file
     highScoreFileWriting = open(DIRECTORYNAME + "/Data/HighScore.txt", "w", encoding="utf8")
     highScoreFileWriting.write(replacement)
     highScoreFileWriting.close()
 
 def highScoreReading(currentLevel):
     '''
-    Retrouver le meilleur score pour le niveau en cours
+    Read and return highscore for current level
     '''
     highScoreFile = open(DIRECTORYNAME + "/Data/HighScore.txt", "r", encoding="utf8")
-    # Tester chaque ligne du fichier
+    #   Read each lines of highscore file
     for line in highScoreFile:
         if(line.find(currentLevel.levelName) != -1):
             lineParsed = line.split(" ")
@@ -584,23 +587,23 @@ def highScoreReading(currentLevel):
 
 def resetHighScore():
     '''
-    Remettre à zéro les scores
+    Reset high-scores
     '''
     scoreFile = open(DIRECTORYNAME + "/Data/HighScore.txt", "r", encoding="utf8")
     replacement = ""
-    # Tester chaque ligne du fichier
+    #   Read each lines of highscore file
     for line in scoreFile:
         lineParsed = line.split(" ")
         replacement = replacement + lineParsed[0] + " " + "99" + "\n"
     scoreFile.close()
-    # Modifier le contenu du fichier avec les modifications
+    #   Edit highscore file with "99"
     resetScoreWriting = open(DIRECTORYNAME + "/Data/HighScore.txt", "w", encoding="utf8")
     resetScoreWriting.write(replacement)
     resetScoreWriting.close()
 
 def displayCounter(number, posX, posY):
     '''
-    Fonction pour afficher un compteur de chiffre
+    Function that display a counter
     '''
     numberString = str(number)
     if(len(numberString) == 1):
@@ -612,10 +615,10 @@ def displayCounter(number, posX, posY):
 
 def displayLaurelWreath(currentLevel, posX, posY):
     '''
-    Fonction pour afficher une couronne de laurier et le meilleur score
+    Function that display a laurel wreath and high-score in level menu
     '''
     highScoreFile = open(DIRECTORYNAME + "/Data/HighScore.txt", "r", encoding="utf8")
-    # Tester chaque ligne du fichier
+    #   Read each lines of highscore file
     for line in highScoreFile:
         if(line.find(currentLevel) != -1):
             lineParsed = line.split(" ")
@@ -632,6 +635,9 @@ def displayLaurelWreath(currentLevel, posX, posY):
     highScoreFile.close()
 
 def chooseNumberCounter(number, color):
+    '''
+    Function that return a text for number counter
+    '''
     if(color == "black"):
         match number:
             case "0":
@@ -679,7 +685,7 @@ def chooseNumberCounter(number, color):
 
 def initialisation_of_variables():
     '''
-    Réinitialiser les variables pour chaque niveau
+    Reset variables at beginning of level
     '''
     global turn_counter
     global checkerboard_player
@@ -703,13 +709,13 @@ def initialisation_of_variables():
 
 ####
 #
-#	Classes
+#	Class
 #
 ####
 
 class Level:
     '''
-    Définit les variables propres au niveau
+    Variables related to levels
     '''
     def __init__(self, levelName, player_bugs, opponent_bugs, bugs_to_hide, PLAYER_POS_X, PLAYER_POS_Y, OPPONENT_POS_X, OPPONENT_POS_Y, NUMBER_OF_COLUMN, NUMBER_OF_ROW, BACKGROUND_GAME):
         self._levelName = levelName
@@ -724,6 +730,9 @@ class Level:
         self._NUMBER_OF_ROW = NUMBER_OF_ROW
         self._BACKGROUND_GAME = BACKGROUND_GAME
 
+    '''
+    Getter et setter
+    '''
     @property
     def levelName(self):
         return self._levelName
@@ -812,10 +821,9 @@ class Level:
     def BACKGROUND_GAME(self, value):
         self._BACKGROUND_GAME = value
 
-
 ####
 #
-#	Lancer la partie
+#	Run game
 #
 ####
 
@@ -824,7 +832,7 @@ while RUNNING:
         if event.type == pygame.KEYDOWN:
             RUNNING = False
 
-    # Get mouse position
+    #   Get mouse position
     mouse_pos = pygame.mouse.get_pos()
 
     if page == "menu":
@@ -835,9 +843,9 @@ while RUNNING:
         RECT_MENU_OPTION = fen.blit(MENU_OPTION, MENU_OPTION_CENTER)
         RECT_MENU_CREDIT = fen.blit(MENU_CREDIT, MENU_CREDIT_CENTER)
         RECT_MENU_QUIT = fen.blit(MENU_QUIT, MENU_QUIT_CENTER)
-        #initialisation of sound
+        #   Initialisation of sound
         checkSoundStatus()
-        # Check if mouse position is in the rect
+        #   Check if mouse position is in the rect
         if RECT_MENU_PLAY.collidepoint(mouse_pos) and event.type == pygame.MOUSEBUTTONDOWN:
             page = "menu_level"
         elif RECT_MENU_OPTION.collidepoint(mouse_pos) and event.type == pygame.MOUSEBUTTONDOWN:
@@ -931,20 +939,20 @@ while RUNNING:
             page = "menu"
 
     elif page == "level":
-        #	Création des listes correspondantes aux damiers
+        #	Creation of checkerboard's list
         initialisation_player = initialisation_checkerboard_player()
         initialisation_opponent = initialisation_checkerboard_opponent()
         fen.fill(WHITE)
         fen.blit(level.BACKGROUND_GAME, (0,0))
         if level.levelName == "level_06":
+            checkerboard_player[5] = "Empty_cliked"
+            checkerboard_player[10] = "Empty_cliked"
+            checkerboard_player[15] = "Empty_cliked"
+        elif level.levelName == "level_07":
             checkerboard_player[6] = "Empty_cliked"
             checkerboard_player[7] = "Empty_cliked"
             checkerboard_player[11] = "Empty_cliked"
             checkerboard_player[12] = "Empty_cliked"
-        elif level.levelName == "level_07":
-            checkerboard_player[5] = "Empty_cliked"
-            checkerboard_player[10] = "Empty_cliked"
-            checkerboard_player[15] = "Empty_cliked"
         elif level.levelName == "level_08":
             checkerboard_player[6] = "Empty_cliked"
             checkerboard_player[7] = "Empty_cliked"
@@ -978,12 +986,12 @@ while RUNNING:
         display_checkerboard(checkerboard_player, level.PLAYER_POS_X, level.PLAYER_POS_Y)
         fen.blit(ETANG_JOUEUR, (200, 25))
         fen.blit(FROG_GREEN, (0,600))
-        #   show pause menu
+        #   Show pause menu
         RECT_PAUSE = fen.blit(PAUSE_MENU, (1100, 20))
         if RECT_PAUSE.collidepoint(mouse_pos) and event.type == pygame.MOUSEBUTTONDOWN:
             pygame.time.wait(250)
             page = "pauseMenu"
-        #   show informations at beginning of game
+        #   Show informations at beginning of game
         if bugs_hidden == False:
             fen.blit(MSG_GAME_START, (225, 650))
             fen.blit(MSG_GAME_START_RULES, (225, 700))
@@ -992,11 +1000,12 @@ while RUNNING:
             if level.bugs_to_hide == 0:
                 bugs_hidden = True
         elif bugs_hidden == True:
+            #   Show opponent pond
             fen.blit(ETANG_ADVERSAIRE, (850, 25))
             display_checkerboard(checkerboard_opponent, level.OPPONENT_POS_X, level.OPPONENT_POS_Y)
             #	Hidde bugs in opponent pond
             opponent_bugs_hidden = opponent_hide_bugs(level.opponent_bugs)
-            #	Show manifying glass or red cross when over case
+            #	Show manifying glass or red cross when over cases
             show_manifying_glass()
             show_red_cross()
             if level.player_bugs > 0 and level.opponent_bugs > 0:
@@ -1004,11 +1013,11 @@ while RUNNING:
                     fen.blit(FROG_GREEN, (0,600))
                     fen.blit(MSG_PLAYER_TURN, (225, 650))
                     fen.blit(MSG_PLAYER_TURN_RULES, (225, 700))
-                    #   Afficher une image pour indiquer que c'est au joueur de jouer
-                    #	Action lorsque l'on clique sur une case de l'adversaire
+                    #   Action when player click on opponent case
                     player_search_action()
                     opponent_turn_start = True
                 else:
+                    #   Display a message before action of opponnent
                     if opponent_turn_start == True and player_turn == False:
                         fen.fill(WHITE)
                         fen.blit(level.BACKGROUND_GAME, (0,0))
@@ -1022,9 +1031,9 @@ while RUNNING:
                         pygame.display.update()
                         pygame.time.wait(1300)
                         opponent_turn_start = False
-                    # Action of opponent
+                    #   Action of opponent
                     random_number = random.randrange(0,((level.NUMBER_OF_ROW * level.NUMBER_OF_COLUMN)-1),1)
-                    while checkerboard_player[random_number] == "Empty_cliked" or checkerboard_player[random_number] == "Bugs_cliked" or random_number == -1:
+                    while checkerboard_player[random_number] == "Empty_cliked" or checkerboard_player[random_number] == "Bugs_player_cliked" or random_number == -1:
                         random_number = random.randrange(0,((level.NUMBER_OF_ROW * level.NUMBER_OF_COLUMN)-1),1)
                     if checkerboard_player[random_number] == "Empty":
                         checkerboard_player[random_number] = "Empty_cliked"
@@ -1052,7 +1061,7 @@ while RUNNING:
 
     elif page == "pauseMenu":
         '''
-        Menu de pause
+        Pause menu
         '''
         fen.blit(BACKGROUND_PAUSE, (100, 100))
         fen.blit(MENU_TURN_NUMBER, (425, 350))
@@ -1065,7 +1074,7 @@ while RUNNING:
         RECT_RETURN_GAME = fen.blit(RETURN_GAME, RETURN_GAME_CENTER)
         if RECT_RETURN_GAME.collidepoint(mouse_pos) and event.type == pygame.MOUSEBUTTONDOWN:
             page = "level"
-        # Option pour la gestion du son
+        #   Edit on options
         fen.blit(OPTION_SOUND_OPTION, (425, 250))
         if(checkSoundStatus() == True):
             RECT_SOUND_MENU = fen.blit(OPTION_SOUND_ON, (600, 250))
@@ -1074,13 +1083,13 @@ while RUNNING:
         if RECT_SOUND_MENU.collidepoint(mouse_pos) and event.type == pygame.MOUSEBUTTONDOWN:
             modifySoundStatus()
             pygame.time.wait(250)
-        # Afficher le meilleur score
+        #   Display best score
         fen.blit(MENU_PAUSE_HIGH_SCORE, (425, 450))
         if highScoreReading(level) != 99:
             displayCounter(highScoreReading(level), 725, 450)
         else:
             displayCounter(0, 725, 450)
-        #   Retourner au menu
+        #   Return to main menu
         RECT_RETURN_MENU = fen.blit(RETURN_MENU_FROM_PAUSE, RETURN_MENU_FROM_PAUSE_CENTER)
         if RECT_RETURN_MENU.collidepoint(mouse_pos) and event.type == pygame.MOUSEBUTTONDOWN:
             nextPage = "menu"
@@ -1091,6 +1100,6 @@ while RUNNING:
         if (event.type == pygame.MOUSEBUTTONUP):
             page = nextPage    
 
-    #	Mise à jour de l'écran
+    #	Update of screen
     pygame.display.update()
-    horloge.tick(FPS)
+    CLOCK.tick(FPS)
